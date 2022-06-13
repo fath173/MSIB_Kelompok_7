@@ -14,12 +14,7 @@ class AddImageFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('alamat', 100)->nullable();
-            $table->string('foto', 100)->nullable();
-            $table->foreignId('id_level')->constrained('level')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('id_kecamatan')->constrained('kecamatan')->onUpdate('cascade')->onDelete('cascade')->nullable(); // fungsi cascade ketika diupdate/delete dia ikut update/delete
-            $table->foreignId('id_kategori')->constrained('kategori')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('id_desa')->constrained('desa')->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->enum('role', ['admin', 'petugas']);
         });
     }
 
