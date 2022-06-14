@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageFieldToUsersTable extends Migration
+class CreateJenisVaksinTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddImageFieldToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['admin', 'petugas']);
-            $table->string('foto', 100);
+        Schema::create('jenis_vaksin', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class AddImageFieldToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('jenis_vaksin');
     }
 }

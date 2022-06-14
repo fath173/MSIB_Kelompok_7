@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
 use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
+use App\Http\Controllers\Admin\MyProfile;
 use App\Http\Controllers\Admin\PendudukCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
 use App\Http\Controllers\MultiUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,8 +36,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/beranda', [homeAdmin::class, 'index'])->name('admin-home');
     Route::get('/penduduk', [PendudukCtrl::class, 'index'])->name('admin-penduduk');
     Route::post('/penduduk-hapus', [PendudukCtrl::class, 'store'])->name('admin-pendudukHapus');
-    Route::view('/profil', 'content-admin.profile.index')->name('admin-profile');
 
+    // CRUD My Profile
+    Route::get('/profile', [MyProfile::class, 'index'])->name('admin-profile');
+    Route::post('/profile-update/{id}', [MyProfile::class, 'update'])->name('admin-profileUpdate');
+
+    // CRUD Jenis Vaksin
     Route::get('/jenis-vaksin', [Jenis_VaksinCtrl::class, 'index'])->name('admin-jenis-vaksin');
     Route::post('/jenis-vaksin-tambah', [Jenis_VaksinCtrl::class, 'store'])->name('admin-jenis-vaksin-tambah');
     Route::post('/jenis-vaksin-update/{id}', [Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
