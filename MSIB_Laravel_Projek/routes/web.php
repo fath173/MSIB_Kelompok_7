@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
 use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
 use App\Http\Controllers\Admin\MyProfile;
 use App\Http\Controllers\Admin\PendudukCtrl;
+use App\Http\Controllers\Admin\PetugasCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
 use App\Http\Controllers\MultiUser;
 use Illuminate\Support\Facades\Auth;
@@ -46,4 +47,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/jenis-vaksin-tambah', [Jenis_VaksinCtrl::class, 'store'])->name('admin-jenis-vaksin-tambah');
     Route::post('/jenis-vaksin-update/{id}', [Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
     Route::post('/jenis-vaksin-hapus/{id}', [Jenis_VaksinCtrl::class, 'destroy'])->name('admin-jenis-vaksin-hapus');
+
+    Route::get('/petugas',[PetugasCtrl::class, 'index'])->name('admin-petugas');
 });
