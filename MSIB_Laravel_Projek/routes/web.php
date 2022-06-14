@@ -34,4 +34,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/penduduk', [PendudukCtrl::class, 'index'])->name('admin-penduduk');
     Route::post('/penduduk-hapus', [PendudukCtrl::class, 'store'])->name('admin-pendudukHapus');
     Route::view('/profil', 'content-admin.profile.index')->name('admin-profile');
+
+    Route::get('/jenis-vaksin', [Jenis_VaksinCtrl::class, 'index'])->name('admin-jenis-vaksin');
+    Route::post('/jenis-vaksin-tambah', [Jenis_VaksinCtrl::class, 'store'])->name('admin-jenis-vaksin-tambah');
+    Route::post('/jenis-vaksin-update/{id}', [Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
+    Route::post('/jenis-vaksin-hapus/{id}', [Jenis_VaksinCtrl::class, 'destroy'])->name('admin-jenis-vaksin-hapus');
 });
