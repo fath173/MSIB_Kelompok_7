@@ -64,7 +64,7 @@
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Fitur</span></li>
         <li class="menu-item" id="list">
-            <a href=".?page=petugas" class="menu-link">
+            <a href="{{ route('admin-petugas') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Petugas</div>
             </a>
