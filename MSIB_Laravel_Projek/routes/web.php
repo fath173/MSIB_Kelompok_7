@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
+use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
 use App\Http\Controllers\Admin\PendudukCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
 use App\Http\Controllers\MultiUser;
