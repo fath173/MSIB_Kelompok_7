@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
-use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
 use App\Http\Controllers\Admin\PendudukCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
 use App\Http\Controllers\MultiUser;
@@ -32,10 +31,7 @@ Route::view('/about', 'content-landing.about.about')->name('landing-about');
 // middleware akan jalan ketika sudah login
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/beranda', [homeAdmin::class, 'index'])->name('admin-home');
-    Route::get('/jenis-vaksin',[Jenis_VaksinCtrl::class, 'index'])->name('admin-jenis-vaksin');
-    Route::post('/jenis-vaksin-tambah',[Jenis_VaksinCtrl::class, 'store'])->name('admin-jenis-vaksin-tambah');
-    Route::post('/jenis-vaksin-update/{id}',[Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
-    Route::post('/jenis-vaksin-hapus/{id}',[Jenis_VaksinCtrl::class, 'destroy'])->name('admin-jenis-vaksin-hapus');
     Route::get('/penduduk', [PendudukCtrl::class, 'index'])->name('admin-penduduk');
     Route::post('/penduduk-hapus', [PendudukCtrl::class, 'store'])->name('admin-pendudukHapus');
+    Route::view('/profil', 'content-admin.profile.index')->name('admin-profile');
 });
