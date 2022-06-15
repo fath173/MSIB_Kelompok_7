@@ -15,19 +15,16 @@
                 <!-- About Content -->
                 <div class="col-lg-8">
                     <div class="section_title">
-                        <h2>A great medical team to help your needs</h2>
+                        <h2>Apa itu VaksinMed??</h2>
                     </div>
                     <div class="about_text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo, finibus quis est ut,
-                            tempor tincidunt ipsum. Nam consequat semper sollicitudin. Aliquam nec dapibus massa. Pellen
-                            tesque in luctus ex. Praesent luctus erat sit amet tortor aliquam bibendum. Nulla ut molestie
-                            augue, scelerisque consectetur quam. Dolor sit amet, consectetur adipiscing elit. Cura bitur
-                            ante leo, finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin.
-                            Aliquam nec dapibus massa. Pellentesque in luctus ex.</p>
-                        <p>Praesent luctus erat sit amet tortor aliquam bibendum. Nulla ut molestie augue, scelerisque
-                            consectetur quam. Dolor sit amet, consectetur adipiscing elit. Cura bitur ante leo, finibus quis
-                            est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin. Aliquam nec dapibus massa.
-                            Pellentesque in luctus ex.</p>
+                        <p style="text-align: justify">VaksinMed merupakan suatu website untuk membantu pendataan vaksin pada masyarakat desa.
+                        Pada tahap awal, vaksinasi Covid-19 sudah berhasil diberikan kepada seluruh tenaga kesahatan, asisten tenaga kesehatan,
+                        dan mahasiswa yang menjalankan pendidikan profesi kedokteran yang bekerja pada fasilitas pelayanan kesehatan.
+                        Vaksin tahap kedua juga sudah diberikan kepada lansia, pekerja sektor esensial, dan guru.
+                        Pemerataan vaksinasi hingga saat ini dilanjutkan untuk masyarakat umum dan terus berjalan hingga berhasil menjangkau
+                        seluruh warga negara Indonesia dan warga negara asing yang bertempat tinggal di Indonesia.
+                        Harapannya dengan upaya pemerataan vaksinasi ini, Indonesia dapat segera bangkit dan terbebas dari penyebaran virus Covid-19.</p>
                     </div>
                     <div class="row loaders_container">
                         <div class="col-md-3 loader_col">
@@ -47,7 +44,7 @@
                             <div class="loader" data-perc="0.95"><span>Passion</span></div>
                         </div>
                     </div>
-                    <div class="button about_button"><a href="#">read more</a></div>
+
                 </div>
 
                 <!-- Boxes -->
@@ -107,7 +104,7 @@
         </div>
     </div>
 
-    <div class="cta">
+    {{-- <div class="cta">
         <div class="cta_background parallax-window" data-parallax="scroll"
             data-image-src="{{ asset('assets/landing/images/cta.jpg') }}" data-speed="0.8">
         </div>
@@ -123,7 +120,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 @push('script-custom')
     <script src="{{ asset('assets/landing/plugins/greensock/TweenMax.min.js') }}"></script>

@@ -30,6 +30,8 @@ Auth::routes();
 Route::get('/', [MultiUser::class, 'index'])->name('/');
 Route::get('/home', [HomeCtrl::class, 'index'])->name('landing-home');
 Route::view('/about', 'content-landing.about.about')->name('landing-about');
+Route::view('/kk', 'content-landing.kk.kk')->name('landing-kk');
+Route::view('/nik', 'content-landing.nik.nik')->name('landing-nik');
 
 
 // middleware akan jalan ketika sudah login
