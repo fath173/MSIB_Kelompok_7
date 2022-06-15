@@ -5,7 +5,7 @@
         <div class="card-body">
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#tambah">+ Tambah
                 Data</button>
-            {{-- @include('content-admin.vaksinasi.vaksinasi-tambah') --}}
+            @include('content-admin.vaksinasi.vaksinasi-tambah')
             <div class="table-responsive text-nowrap">
                 <table id="datatable1" class="table">
                     <thead>
@@ -35,7 +35,7 @@
                                             data-bs-target="#detail{{ $d->id }}">
                                             <i class="bx bx-edit-alt me-1"></i>
                                         </button>
-                                        {{-- @include('content-admin.vaksinasi.vaksinasi-edit') --}}
+                                        @include('content-admin.vaksinasi.vaksinasi-edit')
                                         &nbsp;
                                         <form method="POST" action="{{-- {{ route('admin-vaksinasiHapus') }} --}}">
                                             <button class="btn btn-sm btn-danger" type="submit" name="proses" value="hapus"
