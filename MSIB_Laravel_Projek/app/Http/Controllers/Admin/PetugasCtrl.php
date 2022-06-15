@@ -45,9 +45,10 @@ class PetugasCtrl extends Controller
             'gender' => 'required',
             'role' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required_with:password|same:password|min:8',
         ]);
-    
+
         User::create([
             'name' => $request['name'],
             'gender' => $request['gender'],
@@ -55,7 +56,7 @@ class PetugasCtrl extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-     
+
         return redirect()->route('admin-petugas');
     }
 
@@ -98,7 +99,7 @@ class PetugasCtrl extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        
+
         $petugas = User::findOrFail($id);
 
         if ($request->foto) {
@@ -121,7 +122,7 @@ class PetugasCtrl extends Controller
                 'password' => Hash::make($request->password),
             ]);
         }
-    
+
         return redirect()->route('admin-petugas');
     }
 
@@ -136,7 +137,7 @@ class PetugasCtrl extends Controller
         // dd($id);
         $petugas = User::findOrFail($id);
         $petugas->delete();
-    
+
         return redirect()->route('admin-petugas');
     }
 }

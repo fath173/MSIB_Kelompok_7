@@ -20,7 +20,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($imp as $d)
+                        @foreach ($data_vaksinasi as $d)
                             <tr>
                                 <td><strong><?= $loop->iteration ?></strong></td>
                                 <td>{{ $d->nama }}</td>

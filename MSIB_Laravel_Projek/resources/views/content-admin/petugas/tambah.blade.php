@@ -20,7 +20,8 @@
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="select1" class="form-label">Gender</label>
-                            <select class="form-select" name="gender" id="select1" aria-label="Default select example">
+                            <select class="form-select" name="gender" id="select1"
+                                aria-label="Default select example">
                                 <option value="pria">Pria</option>
                                 <option value="wanita">Wanita</option>
                             </select>
@@ -47,6 +48,13 @@
                             <label for="dobLarge" class="form-label">Password</label>
                             <input type="password" id="dobLarge" name="password" class="form-control"
                                 placeholder="Tulis Password" />
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                            <label for="dobLarge" class="form-label">Tulis Ulang Password </label>
+                            <input type="password" id="dobLarge" name="password_confirmation" class="form-control"
+                                placeholder="Tulis Ulang Password" />
                         </div>
                     </div>
                 </div>

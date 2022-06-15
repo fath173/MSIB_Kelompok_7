@@ -91,7 +91,7 @@
         <li class="menu-item" id="list">
             <a href="{{ route('admin-vaksinasi') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Dosis</div>
+                <div data-i18n="Basic">Vaksinasi</div>
             </a>
         </li>
         <li class="menu-item" id="list">

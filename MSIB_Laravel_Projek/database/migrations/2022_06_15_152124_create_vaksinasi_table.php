@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJenisVaksinTable extends Migration
+class CreateVaksinasiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateJenisVaksinTable extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_vaksin', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nama');
+        Schema::create('vaksinasi', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_kk')->constrained('kartu_keluarga')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateJenisVaksinTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_vaksin');
+        Schema::dropIfExists('vaksinasi');
     }
 }

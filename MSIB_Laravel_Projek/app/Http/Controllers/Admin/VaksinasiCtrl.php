@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Vaksinasi;
 use Illuminate\Http\Request;
@@ -22,10 +23,9 @@ class VaksinasiCtrl extends Controller
             'tanggal_vaksin' => '1992-11-24',
             'Ket' => 'kepala keluarga',
         ];
-        // dd($data);
 
         return view('content-admin.vaksinasi.vaksinasi', [
-            'imp' => $data
+            'data_vaksinasi' => $data
         ]);
     }
 

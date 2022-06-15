@@ -58,10 +58,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/petugas-update/{id}', [PetugasCtrl::class, 'update'])->name('admin-petugas-update');
     Route::post('/petugas-hapus/{id}', [PetugasCtrl::class, 'destroy'])->name('admin-petugas-hapus');
 
-    // Vaksinasi
-    Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');
-
     //KK-admin
     Route::get('/kk', [kkCtrl::class, 'index'])->name('admin-kk');
 
+    // CRUD Vaksinasi
+    Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');
+    Route::get('/vaksinasi-tambah', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasiTambah');
+    Route::get('/vaksinasi-update/{id}', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasiUpdate');
+    Route::get('/vaksinasi-hapus/{id}', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasiHapus');
 });
