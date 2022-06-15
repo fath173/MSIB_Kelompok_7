@@ -37,7 +37,7 @@
                                         </button>
                                         {{-- @include('content-admin.vaksinasi.vaksinasi-edit') --}}
                                         &nbsp;
-                                        <form method="POST" action="{{ route('admin-pendudukHapus') }}">
+                                        <form method="POST" action="{{-- {{ route('admin-vaksinasiHapus') }} --}}">
                                             <button class="btn btn-sm btn-danger" type="submit" name="proses" value="hapus"
                                                 onclick="return confirm('Anda Yakin Data dihapus?')"><i
                                                     class="bx bx-trash me-1"></i> </button>
