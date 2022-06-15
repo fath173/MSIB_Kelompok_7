@@ -15,8 +15,11 @@ class CreateVaksinasiTable extends Migration
     {
         Schema::create('vaksinasi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_kk')->constrained('kartu_keluarga')->onUpdate('cascade')->onDelete('cascade');
-
+            $table->foreignId('id_penduduk')->constrained('penduduk')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_vaksin')->constrained('jenis_vaksin')->onUpdate('cascade')->onDelete('cascade');
+            $table->date('tgl_vaksin');
+            $table->enum('dosis', ['0', '1', '2', '3']);
+            $table->string('keterangan', 50);
             $table->timestamps();
         });
     }
