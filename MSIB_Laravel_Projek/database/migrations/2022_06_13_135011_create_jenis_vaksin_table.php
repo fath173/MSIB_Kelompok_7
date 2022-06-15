@@ -14,7 +14,7 @@ class CreateJenisVaksinTable extends Migration
     public function up()
     {
         Schema::create('jenis_vaksin', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('nama');
             $table->timestamps();
         });
