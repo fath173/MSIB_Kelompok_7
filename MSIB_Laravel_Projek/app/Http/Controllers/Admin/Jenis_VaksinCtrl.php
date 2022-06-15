@@ -15,7 +15,7 @@ class Jenis_VaksinCtrl extends Controller
      */
     public function index()
     {
-        $jenis_vaksin = Jenis_Vaksin::oldest()->paginate(100);
+        $jenis_vaksin = Jenis_Vaksin::latest()->get();
 
         return view('content-admin.jenisVaksin.jenis-vaksin',compact('jenis_vaksin'));
     }
