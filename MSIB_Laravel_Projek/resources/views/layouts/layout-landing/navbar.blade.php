@@ -49,7 +49,7 @@
                             <div class="logo_content d-flex flex-column align-items-start justify-content-center">
                                 <div class="logo_line"></div>
                                 <div class="logo d-flex flex-row align-items-center justify-content-center">
-                                    <div class="logo_text">Care<span>Med</span></div>
+                                    <div class="logo_text">Vaksin<span>Med</span></div>
                                     <div class="logo_box">+</div>
                                 </div>
                                 <div class="logo_sub">Health Care Center</div>
