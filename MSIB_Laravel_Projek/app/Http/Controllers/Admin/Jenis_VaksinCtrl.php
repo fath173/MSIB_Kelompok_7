@@ -15,9 +15,9 @@ class Jenis_VaksinCtrl extends Controller
      */
     public function index()
     {
-        $jenis_vaksin = Jenis_Vaksin::latest()->get();
+        $jenis_vaksin = Jenis_Vaksin::orderBy('id', 'desc')->get();
 
-        return view('content-admin.jenisVaksin.jenis-vaksin',compact('jenis_vaksin'));
+        return view('content-admin.jenisVaksin.jenis-vaksin', compact('jenis_vaksin'));
     }
 
     /**
@@ -39,13 +39,13 @@ class Jenis_VaksinCtrl extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama_vaksin' => 'required',
         ]);
-    
+
         Jenis_Vaksin::create($request->all());
-     
+
         return redirect()->route('admin-jenis-vaksin')
-                        ->with('success','Data jenis vaksin Berhasil Tersimpan.');
+            ->with('success', 'Data jenis vaksin Berhasil Tersimpan.');
     }
 
     /**
@@ -69,18 +69,18 @@ class Jenis_VaksinCtrl extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama_vaksin' => 'required',
         ]);
-        
+
         $jenis_vaksin = Jenis_Vaksin::findOrFail($id);
         $jenis_vaksin->update([
-            'nama' => $request->nama,
+            'nama_vaksin' => $request->nama_vaksin,
         ]);
 
         // $jenis_Vaksin::update($request->all());
-     
+
         return redirect()->route('admin-jenis-vaksin')
-                        ->with('success','Data jenis vaksin Berhasil Terupdate.');
+            ->with('success', 'Data jenis vaksin Berhasil Terupdate.');
     }
 
     /**
@@ -94,8 +94,8 @@ class Jenis_VaksinCtrl extends Controller
         // dd($id);
         $jenis_Vaksin = Jenis_Vaksin::findOrFail($id);
         $jenis_Vaksin->delete();
-    
+
         return redirect()->route('admin-jenis-vaksin')
-                        ->with('success','Data jenis vaksin Berhasil Terhapus');
+            ->with('success', 'Data jenis vaksin Berhasil Terhapus');
     }
 }

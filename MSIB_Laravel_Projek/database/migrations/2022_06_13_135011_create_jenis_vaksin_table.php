@@ -15,7 +15,7 @@ class CreateJenisVaksinTable extends Migration
     {
         Schema::create('jenis_vaksin', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_vaksin', 15);
             $table->timestamps();
         });
     }

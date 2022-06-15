@@ -24,7 +24,7 @@
                         @foreach ($penduduk as $p)
                             <tr>
                                 <td><strong><?= $loop->iteration ?></strong></td>
-                                <td>{{ $p->no_kk }}</td>
+                                <td>{{ $p->kartuKeluargaFk->no_kk }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->nama }}</td>
                                 <td>{{ $p->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>

@@ -9,6 +9,7 @@
                         <tr>
                             <th>No</th>
                             <th>No Kartu Keluarga</th>
+                            <th>Jumlah Keluarga</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -17,6 +18,7 @@
                             <tr>
                                 <td><strong><?= $loop->iteration ?></strong></td>
                                 <td>{{ $p->no_kk }}</td>
+                                <td>12</td>
                                 <td>
                                     <div class="d-flex">
                                         <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"

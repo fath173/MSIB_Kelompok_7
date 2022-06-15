@@ -16,7 +16,7 @@ class PetugasCtrl extends Controller
      */
     public function index()
     {
-        $data = User::latest()->get();
+        $data = User::orderBy('id', 'desc')->get();
         // dd($data);
 
         return view('content-admin.petugas.petugas', ['petugas' => $data]);

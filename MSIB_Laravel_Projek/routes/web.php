@@ -59,11 +59,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/petugas-hapus/{id}', [PetugasCtrl::class, 'destroy'])->name('admin-petugas-hapus');
 
     //KK-admin
-    Route::get('/kk', [kkCtrl::class, 'index'])->name('admin-kk');
+    Route::get('/kartu-keluarga', [kkCtrl::class, 'index'])->name('admin-kk');
 
     // CRUD Vaksinasi
     Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');
-    Route::get('/vaksinasi-tambah', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasiTambah');
-    Route::get('/vaksinasi-update/{id}', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasiUpdate');
-    Route::get('/vaksinasi-hapus/{id}', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasiHapus');
+    Route::post('/vaksinasi-tambah', [VaksinasiCtrl::class, 'store'])->name('admin-vaksinasiTambah');
+    Route::post('/vaksinasi-update/{id}', [VaksinasiCtrl::class, 'update'])->name('admin-vaksinasiUpdate');
+    Route::post('/vaksinasi-hapus/{id}', [VaksinasiCtrl::class, 'destroy'])->name('admin-vaksinasiHapus');
+    Route::post('/vaksinasi-getJenisVaksin', [VaksinasiCtrl::class, 'getJenisVaksin'])->name('admin-getJenisVaksin');
 });

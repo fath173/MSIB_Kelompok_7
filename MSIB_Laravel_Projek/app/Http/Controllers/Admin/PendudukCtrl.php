@@ -15,17 +15,7 @@ class PendudukCtrl extends Controller
      */
     public function index()
     {
-        $data[] = (object)[
-            'id' => 1,
-            'no_kk' => 123123123,
-            'nik' => 54354354,
-            'nama' => 'Andika',
-            'gender' => 'L',
-            'tempat_lahir' => 'Jember',
-            'tanggal_lahir' => '1992-11-24',
-            'status' => 'kepala keluarga',
-            'alamat' => 'Jember, Mastrip No 03',
-        ];
+        $data = Penduduk::orderBy('id', 'desc')->get();
         // dd($data);
 
         return view('content-admin.penduduk.penduduk', [

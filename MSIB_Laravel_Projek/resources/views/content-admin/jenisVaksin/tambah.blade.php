@@ -12,7 +12,7 @@
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Nama</label>
-                            <input type="text" id="dobLarge" name="nama" class="form-control"
+                            <input type="text" id="dobLarge" name="nama_vaksin" class="form-control"
                                 placeholder="Tulis Nama jenis vaksin" />
                         </div>
                     </div>

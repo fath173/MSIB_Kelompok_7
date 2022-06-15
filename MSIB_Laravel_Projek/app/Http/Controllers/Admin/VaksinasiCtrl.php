@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jenis_Vaksin;
+use App\Models\Penduduk;
 use App\Models\Vaksinasi;
 use Illuminate\Http\Request;
 
@@ -15,83 +17,86 @@ class VaksinasiCtrl extends Controller
      */
     public function index()
     {
-        $data[] = (object)[
-            'id' => 1,
-            'nama' => 'Jhony',
-            'jenis_vaksin' => 'Moderna',
-            'dosis' => '2',
-            'tanggal_vaksin' => '1992-11-24',
-            'Ket' => 'kepala keluarga',
-        ];
+        $data = Vaksinasi::orderBy('id', 'desc')->get();
+        $jenisVaksin = Jenis_Vaksin::all();
 
         return view('content-admin.vaksinasi.vaksinasi', [
-            'data_vaksinasi' => $data
+            'data_vaksinasi' => $data,
+            'dataVaksin' => $jenisVaksin,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nik' => 'required',
+            'jenis_vaksin' => 'required',
+            'tgl_vaksin' => 'required',
+            'dosis' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        $pdd = Penduduk::where('nik', $request->nik)->get();
+        // dd($pdd[0]->id);
+        Vaksinasi::create([
+            'id_penduduk' => $pdd[0]->id,
+            'id_vaksin' => $request->jenis_vaksin,
+            'tgl_vaksin' => $request->tgl_vaksin,
+            'dosis' => $request->dosis,
+            'keterangan' => $request->keterangan,
+        ]);
+
+        return redirect()->route('admin-vaksinasi')
+            ->with('success', 'Data jenis vaksin Berhasil Tersimpan.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Vaksinasi  $vaksinasi
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vaksinasi $vaksinasi)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nik' => 'required',
+            'jenis_vaksin' => 'required',
+            'tgl_vaksin' => 'required',
+            'dosis' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        $pdd = Penduduk::where('nik', $request->nik)->get();
+
+        $va = Vaksinasi::findOrFail($id);
+        $va->update([
+            'id_penduduk' => $pdd[0]->id,
+            'id_vaksin' => $request->jenis_vaksin,
+            'tgl_vaksin' => $request->tgl_vaksin,
+            'dosis' => $request->dosis,
+            'keterangan' => $request->keterangan,
+        ]);
+
+        return redirect()->route('admin-vaksinasi')
+            ->with('success', 'Data jenis vaksin Berhasil Tersimpan.');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Vaksinasi  $vaksinasi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vaksinasi $vaksinasi)
+    public function destroy($id)
     {
-        //
+        $va = Vaksinasi::findOrFail($id);
+        $va->delete();
+        return redirect()->route('admin-vaksinasi')
+            ->with('success', 'Data jenis vaksin Berhasil Tersimpan.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Vaksinasi  $vaksinasi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Vaksinasi $vaksinasi)
+    public function getJenisVaksin(Request $request)
     {
-        //
-    }
+        $nik = $request->nik;
+        $pdd = Penduduk::where('nik', $nik)->get();
+        if ($pdd->isEmpty()) {
+            return 0;
+        } else {
+            $va = Vaksinasi::where('id_penduduk', $pdd[0]->id)->get();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Vaksinasi  $vaksinasi
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Vaksinasi $vaksinasi)
-    {
-        //
+            $output = ' <option value="0">Tidak Vaksin</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>';
+            return $output;
+        }
     }
 }

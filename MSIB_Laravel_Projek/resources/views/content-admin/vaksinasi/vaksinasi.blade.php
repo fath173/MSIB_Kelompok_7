@@ -1,4 +1,7 @@
 @extends('content-admin.index')
+@push('style-custom')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endpush
 @section('isi-contentAdmin')
     <div class="card p-3">
         <h5 class="card-header">Data Vaksin</h5>
@@ -23,11 +26,11 @@
                         @foreach ($data_vaksinasi as $d)
                             <tr>
                                 <td><strong><?= $loop->iteration ?></strong></td>
-                                <td>{{ $d->nama }}</td>
-                                <td>{{ $d->jenis_vaksin }}</td>
+                                <td>{{ $d->pendudukFk->nama }}</td>
+                                <td>{{ $d->jenisVaksinFk->nama_vaksin }}</td>
                                 <td>{{ $d->dosis }}</td>
-                                <td>{{ $d->tanggal_vaksin }}</td>
-                                <td>{{ $d->Ket }}</td>
+                                <td>{{ $d->tgl_vaksin }}</td>
+                                <td>{{ $d->keterangan }}</td>
                                 </td>
                                 <td>
                                     <div class="d-flex">
@@ -37,11 +40,12 @@
                                         </button>
                                         @include('content-admin.vaksinasi.vaksinasi-edit')
                                         &nbsp;
-                                        <form method="POST" action="{{-- {{ route('admin-vaksinasiHapus') }} --}}">
+                                        <form method="POST" action="{{ route('admin-vaksinasiHapus', $d->id) }}">
+                                            @csrf
                                             <button class="btn btn-sm btn-danger" type="submit" name="proses" value="hapus"
                                                 onclick="return confirm('Anda Yakin Data dihapus?')"><i
-                                                    class="bx bx-trash me-1"></i> </button>
-                                            <input type="hidden" name="idx" value="{{ $d->id }}" />
+                                                    class="bx bx-trash me-1"></i>
+                                            </button>
                                         </form>
                                     </div>
                                 </td>
@@ -54,3 +58,37 @@
         </div>
     </div>
 @endsection
+@push('script-custom')
+    <script>
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $("input[name~='nik']").keyup(function() {
+                var nikk = $(this).val()
+                loadJenisVaksin(nikk)
+            });
+
+            function loadJenisVaksin(nikk) {
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('admin-getJenisVaksin') }}",
+                    data: {
+                        nik: nikk
+                    },
+                    success: function(data) {
+                        if (data == 0) {
+                            console.log(data);
+                        } else {
+                            console.log(data);
+                            ("#dosis").html(data);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+@endpush
