@@ -109,7 +109,7 @@ class PetugasCtrl extends Controller
                 'gender' => $request->gender,
                 'role' => $request->role,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'foto' => $gambar,
             ]);
         } else {
@@ -118,7 +118,7 @@ class PetugasCtrl extends Controller
                 'gender' => $request->gender,
                 'role' => $request->role,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
             ]);
         }
     
