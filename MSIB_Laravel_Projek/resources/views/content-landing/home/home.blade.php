@@ -9,7 +9,7 @@
                 <!-- Slider Item -->
                 <div class="owl-item">
                     <div class="home_slider_background"
-                        style="background-image:url({{ asset('assets/landing/images/botol.jpg') }})">
+                        style="background-image:url({{ asset('assets/landing/images/bg2.jpg') }})">
                     </div>
                     <div class="home_content">
                         <div class="container">
@@ -17,10 +17,10 @@
                                 <div class="col">
                                     <div class="home_content_inner">
                                         <div class="home_title">
-                                            <h1>Lakukan Vaksin untuk Kesehatan Keluarga yang Lebih Baik</h1>
+                                            <h1>Vaksin Melindungi Kesehatan Masyarakat</h1>
                                         </div>
                                         <div class="home_text">
-                                            <p>Setiap orang berhak mendapatkan vaksin berkualitas </p>
+                                            <p style="color: black">Setiap orang berhak mendapatkan vaksin berkualitas </p>
                                         </div>
                                         <div class="button home_button">
                                             <a href="#">read more</a>
@@ -152,8 +152,9 @@
                             </div>
                         </div>
                         <div class="box_title">Emergency Cases</div>
-                        <div class="box_phone">+56 273 45678 235</div>
-                        <div class="box_emergency_text">Informasi lebih lanjut hubungi: Contact Center HALO BPOM di nomor telepon 1-500-533, SMS 0-8121-9999-533, WhatsApp 0811-9181 533, email halobpom@pom.go.id,  twitter@BPOM_RI, atau Unit Layanan Pengaduan Konsumen (ULPK) Balai Besar/Balai POM di seluruh Indonesia</div>
+                        {{-- <div class="box_phone">+56 273 45678 235</div> --}}
+                        <div class="box_emergency_text" style="text-align: justify">
+                            Informasi lebih lanjut hubungi : Contact Center HALO BPOM di nomor telepon 1-500-533,  email halobpom@pom.go.id,  atau Unit Layanan Pengaduan Konsumen (ULPK) Balai Besar/Balai POM di seluruh Indonesia</div>
                     </div>
                 </div>
 
@@ -174,17 +175,17 @@
                             <h2>Tim medis yang hebat untuk membantu kebutuhan Anda</h2>
                         </div>
                         <div class="about_text">
-                            <p>Setelah melakukan vaksin, akan dilakukan observasi selama 15 menit. Jika dalam 15 menit tersebut terdapat keluhan, maka akan ditangani oleh tim medis yang bertugas di lokasi vaksinasi. Jika keluhan baru dirasakan ketika anak pulang, maka dapat melaporkan ke puskesmas atau dapat menghubungi kontak yang ada di kartu vaksin.</p>
+                            <p style="text-align: justify">Setelah melakukan vaksin, akan dilakukan observasi selama 15 menit. Jika dalam 15 menit tersebut terdapat keluhan, maka akan ditangani oleh tim medis yang bertugas di lokasi vaksinasi. Jika keluhan baru dirasakan ketika anak pulang, maka dapat melaporkan ke puskesmas atau dapat menghubungi kontak yang ada di kartu vaksin.</p>
                         </div>
-                        <div class="button about_button">
+                        {{-- <div class="button about_button">
                             <a href="#">read more</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
                 <!-- About Image -->
                 <div class="col-lg-5">
-                    <div class="about_image"><img src="{{ asset('assets/landing/images/medis.jpg') }}" alt=""></div>
+                    <div class="about_image" style="width: 10cm; height:6cm; opacity : 0.8;"><img src="{{ asset('assets/landing/images/medis2.jpg') }}" alt=""></div>
                 </div>
             </div>
         </div>
@@ -199,61 +200,55 @@
             <div class="row">
                 <div class="col">
                     <div class="section_title section_title_light">
-                        <h2>Our Medical Departments</h2>
+                        <h2>Check Your Identity</h2>
                     </div>
                 </div>
             </div>
             <div class="row departments_row row-md-eq-height">
 
-                <!-- Department -->
-                <div class="col-lg-3 col-md-6 dept_col">
-                    <div class="dept">
-                        <div class="dept_image"><img src="{{ asset('assets/landing/images/pendaftaran.jpg') }}" alt="">
-                        </div>
-                        <div class="dept_content text-center">
-                            <div class="dept_title">plastic surgery</div>
-                            <div class="dept_subtitle">Dr. James Smith</div>
+                <div class="boxes">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Box -->
+                            <div class="col-lg-4 box_col">
+                                <a href="{{ route('landing-kk') }}">
+                                <div class="box1 box_appointments">
+                                    <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                                        <div style="width: 280px; height:280px; margin-top: 130px; margin-left:1px;"><img
+                                                src="{{ asset('assets/landing/images/kk.png') }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="box_title" style="margin-top: 140px; margin-left:125px;">No. KK</div>
+
+                                </div>
+                                </a>
+                            </div>
+
+                            <!-- Box -->
+                            <div class="col-lg-4 box_col">
+                                <a href="{{ route('landing-nik') }}">
+                                <div class="box1 box_appointments">
+                                    <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                                        <div style="width: 280px; height:280px; margin-top: 130px; margin-left:1px;"><img
+                                                src="{{ asset('assets/landing/images/nik.png') }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="box_title" style="margin-top: 140px; margin-left:125px;">NIK</div>
+                                </div>
+                                </a>
+                            </div>
+
+                            <!-- Box -->
+                            <div class="col-lg-4 box_col" style="color: #f4f4f4; margin-top:20px;">
+                                <h2>BINGUNG CARI DATA VAKSIN?</h2>
+                                <p style="color: #f4f4f4;">Yuk cek data diri kamu disini</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <!-- Department -->
-                <div class="col-lg-3 col-md-6 dept_col">
-                    <div class="dept">
-                        <div class="dept_image"><img src="{{ asset('assets/landing/images/skrinning.jpg') }}" alt="">
-                        </div>
-                        <div class="dept_content text-center">
-                            <div class="dept_title">gastroenterology</div>
-                            <div class="dept_subtitle">Dr. Gunter Roscoe</div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Department -->
-                <div class="col-lg-3 col-md-6 dept_col">
-                    <div class="dept">
-                        <div class="dept_image"><img src="{{ asset('assets/landing/images/vaksinasi.jpg') }}" alt="">
-                        </div>
-                        <div class="dept_content text-center">
-                            <div class="dept_title">dentistry</div>
-                            <div class="dept_subtitle">Dr. Maria Williams</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Department -->
-                <div class="col-lg-3 col-md-6 dept_col">
-                    <div class="dept">
-                        <div class="dept_text">
-                            <p>Meski mendapat vaksin, petugas akan tetap menjaga jarak, menggunakan APD.
-                                Meja 1 Pendaftaran,
-                                Meja 2 Skrinning,
-                                Meja 3 Vaksinasi,
-                                Meja 4 Pendataan dan Observasi.</p>
-                        </div>
-                        <div class="button dept_button"><a href="#">read more</a></div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
