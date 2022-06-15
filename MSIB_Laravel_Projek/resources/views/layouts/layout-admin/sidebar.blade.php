@@ -89,7 +89,7 @@
             </a>
         </li>
         <li class="menu-item" id="list">
-            <a href=".?page=dosis" class="menu-link">
+            <a href="{{ route('admin-vaksinasi') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Dosis</div>
             </a>

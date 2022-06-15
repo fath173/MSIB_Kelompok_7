@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
 use App\Http\Controllers\Admin\MyProfileCtrl;
 use App\Http\Controllers\Admin\PendudukCtrl;
 use App\Http\Controllers\Admin\PetugasCtrl;
+use App\Http\Controllers\Admin\VaksinasiCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
 use App\Http\Controllers\MultiUser;
 use Illuminate\Support\Facades\Auth;
@@ -55,4 +56,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/petugas-tambah', [PetugasCtrl::class, 'store'])->name('admin-petugas-tambah');
     Route::post('/petugas-update/{id}', [PetugasCtrl::class, 'update'])->name('admin-petugas-update');
     Route::post('/petugas-hapus/{id}', [PetugasCtrl::class, 'destroy'])->name('admin-petugas-hapus');
+
+    // Vaksinasi
+    Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');
+
 });
