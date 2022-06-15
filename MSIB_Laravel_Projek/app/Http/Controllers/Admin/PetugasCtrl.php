@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Petugas;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class PetugasCtrl extends Controller
@@ -15,19 +16,10 @@ class PetugasCtrl extends Controller
      */
     public function index()
     {
-        $data[] = (object)[
-            'id' => 1,
-            'nama' => 'Galih',
-            'gender' => 'L',
-            'role' => 'petugas',
-            'username' => 'Galih123',
-            'password' => 'Galih123',
-        ];
+        $data = User::latest()->get();
         // dd($data);
 
-        return view('content-admin.petugas.petugas', [
-            'petugas' => $data
-        ]);
+        return view('content-admin.petugas.petugas', ['petugas' => $data]);
     }
 
     /**
@@ -48,7 +40,23 @@ class PetugasCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'gender' => 'required',
+            'role' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+    
+        User::create([
+            'name' => $request['name'],
+            'gender' => $request['gender'],
+            'role' => $request['role'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+     
+        return redirect()->route('admin-petugas');
     }
 
     /**
@@ -80,9 +88,41 @@ class PetugasCtrl extends Controller
      * @param  \App\Models\Petugas  $petugas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Petugas $petugas)
+    public function update(Request $request, $id)
     {
-        //
+        // dd($id);
+        $request->validate([
+            'name' => 'required',
+            'gender' => 'required',
+            'role' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        
+        $petugas = User::findOrFail($id);
+
+        if ($request->foto) {
+            $gambar = md5($request->foto . microtime() . '.' . $request->foto->extension());
+            $request->foto->move(public_path('files/foto-profile'), $gambar);
+            $petugas->update([
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'role' => $request->role,
+                'email' => $request->email,
+                'password' => $request->password,
+                'foto' => $gambar,
+            ]);
+        } else {
+            $petugas->update([
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'role' => $request->role,
+                'email' => $request->email,
+                'password' => $request->password,
+            ]);
+        }
+    
+        return redirect()->route('admin-petugas');
     }
 
     /**
@@ -91,8 +131,12 @@ class PetugasCtrl extends Controller
      * @param  \App\Models\Petugas  $petugas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Petugas $petugas)
+    public function destroy($id)
     {
-        //
+        // dd($id);
+        $petugas = User::findOrFail($id);
+        $petugas->delete();
+    
+        return redirect()->route('admin-petugas');
     }
 }

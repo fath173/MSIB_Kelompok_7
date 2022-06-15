@@ -6,14 +6,14 @@
                 <h5 class="modal-title" id="exampleModalLabel3">Update Petugas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('admin-petugas-update',$user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- @method('POST') -->
                 <div class="modal-body">
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Nama</label>
-                            <input type="text" id="dobLarge" name="nama" class="form-control" value="{{ $user->nama }}"
+                            <input type="text" id="dobLarge" name="name" class="form-control" value="{{ $user->name }}"
                                 placeholder="Tulis Nama" />
                         </div>
                     </div>
@@ -22,18 +22,18 @@
                         <div class="col mb-0">
                             <label for="select1" class="form-label">Gender</label>
                             <select class="form-select" name="gender" id="select1" aria-label="Default select example">
-                                @if ($user->gender == 'L')
-                                <option value="L" selected>Laki-laki</option>
-                                <option value="P">Perempuan</option>
+                                @if ($user->gender == 'pria')
+                                <option value="pria" selected>Pria</option>
+                                <option value="wanita">Wanita</option>
                                 @else
-                                <option value="L">Laki-laki</option>
-                                <option value="P" selected>Perempuan</option>
+                                <option value="pria">Pria</option>
+                                <option value="wanita" selected>Wanita</option>
                                 @endif
                             </select>
                         </div>
                         <div class="col mb-0">
                             <label for="select2" class="form-label">Role</label>
-                            <select class="form-select" name="status" id="select2" aria-label="Default select example">
+                            <select class="form-select" name="role" id="select2" aria-label="Default select example">
                                 @if ($user->role == 'admin')
                                 <option value="admin" selected>Admin</option>
                                 <option value="petugas">Petugas</option>
@@ -47,9 +47,9 @@
 
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
-                            <label for="dobLarge" class="form-label">Username</label>
-                            <input type="text" id="dobLarge" name="username" class="form-control"
-                                value="{{ $user->username }}" placeholder="Tulis Username" />
+                            <label for="dobLarge" class="form-label">Email</label>
+                            <input type="email" id="dobLarge" name="email" class="form-control"
+                                value="{{ $user->email }}" placeholder="Tulis Email" />
                         </div>
                     </div>
 
@@ -60,6 +60,14 @@
                                 onfocus="this.type='password'"
                                 onblur="if(this.value == '{{ $user->password }}')this.type='text'"
                                 value="{{ $user->password }}" placeholder="Tulis Password" />
+                        </div>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                            <label for="dobLarge" class="form-label">Upload gambar</label>
+                            <input type="file" id="dobLarge" name="foto" class="form-control" accept=".png, .jpg, .jpeg"
+                                placeholder="upload gambar" />
                         </div>
                     </div>
                 </div>

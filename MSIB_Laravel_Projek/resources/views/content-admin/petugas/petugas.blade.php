@@ -14,7 +14,8 @@
                         <th>Nama</th>
                         <th>Gender</th>
                         <th>Role</th>
-                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Gambar</th>
                         <th>Opsi</th>
                     </tr>
                 </thead>
@@ -22,10 +23,14 @@
                     @foreach ($petugas as $user)
                     <tr>
                         <td><strong><?= $loop->iteration ?></strong></td>
-                        <td>{{ $user->nama }}</td>
-                        <td>{{ $user->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->gender }}</td>
                         <td>{{ $user->role }}</td>
-                        <td>{{ $user->username }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            <img src="{{ asset('files/foto-profile/' . $user->foto) }}" width="50" alt="foto">
+                        </td>
+                        <!-- <td>{{ asset('files/foto-profile/' . $user->foto) }}</td> -->
                         </td>
                         <td>
                             <div class="d-flex">
@@ -35,7 +40,7 @@
                                 </button>
                                 @include('content-admin.petugas.edit')
                                 &nbsp;
-                                <form method="POST" action="">
+                                <form method="POST" action="{{ route('admin-petugas-hapus',$user->id) }}">
                                     @csrf
                                     <button class="btn btn-sm btn-danger" type="submit" value="hapus"
                                         onclick="return confirm('Anda Yakin Data dihapus?')"><i

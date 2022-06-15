@@ -5,14 +5,14 @@
                 <h5 class="modal-title">Tambah Petugas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('admin-petugas-tambah') }}" method="POST">
                 @csrf
 
                 <div class="modal-body">
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Nama</label>
-                            <input type="text" id="dobLarge" name="nama" class="form-control"
+                            <input type="text" id="dobLarge" name="name" class="form-control"
                                 placeholder="Tulis Nama" />
                         </div>
                     </div>
@@ -21,13 +21,13 @@
                         <div class="col mb-0">
                             <label for="select1" class="form-label">Gender</label>
                             <select class="form-select" name="gender" id="select1" aria-label="Default select example">
-                                <option value="L">Laki-laki</option>
-                                <option value="P">Perempuan</option>
+                                <option value="pria">Pria</option>
+                                <option value="wanita">Wanita</option>
                             </select>
                         </div>
                         <div class="col mb-0">
                             <label for="select2" class="form-label">Role</label>
-                            <select class="form-select" name="status" id="select2" aria-label="Default select example">
+                            <select class="form-select" name="role" id="select2" aria-label="Default select example">
                                 <option value="admin">Admin</option>
                                 <option value="petugas">Petugas</option>
                             </select>
@@ -36,9 +36,9 @@
 
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
-                            <label for="dobLarge" class="form-label">Username</label>
-                            <input type="text" id="dobLarge" name="username" class="form-control"
-                                placeholder="Tulis Username" />
+                            <label for="dobLarge" class="form-label">Email</label>
+                            <input type="text" id="dobLarge" name="email" class="form-control"
+                                placeholder="Tulis Email" />
                         </div>
                     </div>
 

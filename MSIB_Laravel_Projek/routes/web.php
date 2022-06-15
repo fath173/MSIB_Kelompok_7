@@ -48,5 +48,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/jenis-vaksin-update/{id}', [Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
     Route::post('/jenis-vaksin-hapus/{id}', [Jenis_VaksinCtrl::class, 'destroy'])->name('admin-jenis-vaksin-hapus');
 
+    // CRUD Petugas
     Route::get('/petugas', [PetugasCtrl::class, 'index'])->name('admin-petugas');
+    Route::post('/petugas-tambah', [PetugasCtrl::class, 'store'])->name('admin-petugas-tambah');
+    Route::post('/petugas-update/{id}', [PetugasCtrl::class, 'update'])->name('admin-petugas-update');
+    Route::post('/petugas-hapus/{id}', [PetugasCtrl::class, 'destroy'])->name('admin-petugas-hapus');
 });
