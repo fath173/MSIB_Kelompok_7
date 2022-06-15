@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
 use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
-use App\Http\Controllers\Admin\MyProfile;
+use App\Http\Controllers\Admin\MyProfileCtrl;
 use App\Http\Controllers\Admin\PendudukCtrl;
 use App\Http\Controllers\Admin\PetugasCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
@@ -39,8 +39,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/penduduk-hapus', [PendudukCtrl::class, 'store'])->name('admin-pendudukHapus');
 
     // CRUD My Profile
-    Route::get('/profile', [MyProfile::class, 'index'])->name('admin-profile');
-    Route::post('/profile-update/{id}', [MyProfile::class, 'update'])->name('admin-profileUpdate');
+    Route::get('/profile', [MyProfileCtrl::class, 'index'])->name('admin-profile');
+    Route::post('/profile-update/{id}', [MyProfileCtrl::class, 'update'])->name('admin-profileUpdate');
 
     // CRUD Jenis Vaksin
     Route::get('/jenis-vaksin', [Jenis_VaksinCtrl::class, 'index'])->name('admin-jenis-vaksin');
@@ -48,5 +48,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/jenis-vaksin-update/{id}', [Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
     Route::post('/jenis-vaksin-hapus/{id}', [Jenis_VaksinCtrl::class, 'destroy'])->name('admin-jenis-vaksin-hapus');
 
-    Route::get('/petugas',[PetugasCtrl::class, 'index'])->name('admin-petugas');
+    Route::get('/petugas', [PetugasCtrl::class, 'index'])->name('admin-petugas');
 });
