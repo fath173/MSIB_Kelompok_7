@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
 use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
 use App\Http\Controllers\Admin\MyProfileCtrl;
 use App\Http\Controllers\Admin\PendudukCtrl;
+use App\Http\Controllers\Admin\kkCtrl;
 use App\Http\Controllers\Admin\PetugasCtrl;
 use App\Http\Controllers\Admin\VaksinasiCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
@@ -59,5 +60,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Vaksinasi
     Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');
+
+    //KK-admin
+    Route::get('/kk', [kkCtrl::class, 'index'])->name('admin-kk');
 
 });

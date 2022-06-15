@@ -83,7 +83,7 @@
             </a>
         </li>
         <li class="menu-item" id="list">
-            <a href=".?page=kk" class="menu-link">
+            <a href="{{ route('admin-kk') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Kartu Keluarga</div>
             </a>
