@@ -20,7 +20,7 @@
  <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/apex-charts/apex-charts.css') }}" />
 
  <!-- sweetalert -->
- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="{{ asset('assets/admin/plugins/sweetalert/sweetalert.js') }}"></script>
 
  <!-- Helpers -->
  <script src="{{ asset('assets/admin/vendor/js/helpers.js') }}"></script>
