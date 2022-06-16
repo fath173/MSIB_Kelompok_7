@@ -4,8 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>Dashboard</title>
 
@@ -13,6 +12,11 @@
 
     @include('layouts.layout-admin.css')
     @stack('style-custom')
+    <style>
+        .swal2-container {
+            z-index: 1100;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,6 +36,23 @@
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <div class="row">
                         <div class="col-lg-12 order-1">
+                            @if ($errors->any())
+                            <script>
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    html: '@foreach ($errors->all() as $error) <li>{{ $error }}</li> @endforeach',
+                                })
+                            </script>
+                            @elseif ($message = Session::get('success'))
+                            <script>
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Yeeaay',
+                                    html: '{{ $message }}',
+                                })
+                            </script>
+                            @endif
 
                             @yield('isi-contentAdmin')
                             {{ isset($slot) ? $slot : null }}
