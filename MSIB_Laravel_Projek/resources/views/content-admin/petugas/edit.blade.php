@@ -13,8 +13,7 @@
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Nama</label>
-                            <input type="text" id="dobLarge" name="name" class="form-control" value="{{ $user->name }}"
-                                placeholder="Tulis Nama" />
+                            <input type="text" id="dobLarge" name="name" class="form-control" value="{{ $user->name }}" placeholder="Tulis Nama" />
                         </div>
                     </div>
 
@@ -22,12 +21,12 @@
                         <div class="col mb-0">
                             <label for="select1" class="form-label">Gender</label>
                             <select class="form-select" name="gender" id="select1" aria-label="Default select example">
-                                @if ($user->gender == 'pria')
-                                <option value="pria" selected>Pria</option>
-                                <option value="wanita">Wanita</option>
+                                @if ($user->gender == 'L')
+                                <option value="L" selected>Laki-laki</option>
+                                <option value="P">Perempuan</option>
                                 @else
-                                <option value="pria">Pria</option>
-                                <option value="wanita" selected>Wanita</option>
+                                <option value="L">Laki-laki</option>
+                                <option value="P" selected>Perempuan</option>
                                 @endif
                             </select>
                         </div>
@@ -48,26 +47,21 @@
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Email</label>
-                            <input type="email" id="dobLarge" name="email" class="form-control"
-                                value="{{ $user->email }}" placeholder="Tulis Email" />
+                            <input type="email" id="dobLarge" name="email" class="form-control" value="{{ $user->email }}" placeholder="Tulis Email" />
                         </div>
                     </div>
 
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Password</label>
-                            <input type="text" id="dobLarge" name="password" class="form-control"
-                                onfocus="this.type='password'"
-                                onblur="if(this.value == '{{ $user->password }}')this.type='text'"
-                                value="{{ $user->password }}" placeholder="Tulis Password" />
+                            <input type="text" id="dobLarge" name="password" class="form-control" onfocus="this.type='password'" onblur="if(this.value == '{{ $user->password }}')this.type='text'" value="{{ $user->password }}" placeholder="Tulis Password" />
                         </div>
                     </div>
 
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Upload gambar</label>
-                            <input type="file" id="dobLarge" name="foto" class="form-control" accept=".png, .jpg, .jpeg"
-                                placeholder="upload gambar" />
+                            <input type="file" id="dobLarge" name="foto" class="form-control" accept=".png, .jpg, .jpeg" placeholder="upload gambar" />
                         </div>
                     </div>
                 </div>

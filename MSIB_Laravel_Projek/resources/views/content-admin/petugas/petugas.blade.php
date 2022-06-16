@@ -24,7 +24,7 @@
                     <tr>
                         <td><strong><?= $loop->iteration ?></strong></td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->gender }}</td>
+                        <td>{{ $user->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
                         <td>{{ $user->role }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
@@ -34,17 +34,14 @@
                         </td>
                         <td>
                             <div class="d-flex">
-                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
-                                    data-bs-target="#detail{{ $user->id }}">
+                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#detail{{ $user->id }}">
                                     <i class="bx bx-edit-alt me-1"></i>
                                 </button>
                                 @include('content-admin.petugas.edit')
                                 &nbsp;
                                 <form method="POST" action="{{ route('admin-petugas-hapus',$user->id) }}">
                                     @csrf
-                                    <button class="btn btn-sm btn-danger" type="submit" value="hapus"
-                                        onclick="return confirm('Anda Yakin Data dihapus?')"><i
-                                            class="bx bx-trash me-1"></i> </button>
+                                    <button class="btn btn-sm btn-danger" type="submit" value="hapus" onclick="return confirm('Anda Yakin Data dihapus?')"><i class="bx bx-trash me-1"></i> </button>
                                     <!-- <input type="hidden" name="idx" value="{{ $user->id }}" /> -->
                                 </form>
                             </div>
