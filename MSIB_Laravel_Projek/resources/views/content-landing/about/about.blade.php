@@ -81,9 +81,8 @@
                             <div style="width: 29px; height:29px;"><img
                                     src="{{ asset('assets/landing/images/phone-call.svg') }}" alt=""></div>
                         </div>
-                        <div class="box_title">Appointments</div>
-                        <div class="box_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante
-                            leo, finibus quis est ut, tempor tincidunt ipsum. Nam cons equat semper sollicitudin.</div>
+                        <div class="box_title">Hotline Covid-19</div>
+                        <div class="box_text">Informasi panggilan darurat untuk penannganan Covid-19. Informasi lebih lanjut silahkan hubungi : 119</div>
                     </div>
 
                     <!-- Box -->
@@ -93,12 +92,9 @@
                                     src="{{ asset('assets/landing/images/bell.svg') }}" alt="">
                             </div>
                         </div>
-                        <div class="box_title">Emergency Cases</div>
-                        <div class="box_phone">+56 273 45678 235</div>
-                        <div class="box_emergency_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            ante leo.</div>
+                        <div class="box_title">Narahubung</div>
+                        <div class="box_emergency_text">Jika ada ingin mengetahui informasi secara lengkap, dapat langsung hubungi : 08214121231</div>
                     </div>
-
                 </div>
             </div>
         </div>

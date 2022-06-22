@@ -42,17 +42,9 @@
                         <div class="footer_title">Useful Links</div>
                         <ul>
                             <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Apply for a Job</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Our Partners</a></li>
                             <li><a href="#">Services</a></li>
-                            <li><a href="#">Free services</a></li>
                             <li><a href="#">About us</a></li>
-                            <li><a href="#">News</a></li>
                             <li><a href="#">Contact</a></li>
-                            <li><a href="#">Our Screening Program</a></li>
-                            <li><a href="#">FAQ</a></li>
                         </ul>
                     </div>
                 </div>

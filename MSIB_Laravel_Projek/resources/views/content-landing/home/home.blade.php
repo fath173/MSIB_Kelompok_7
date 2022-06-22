@@ -20,11 +20,37 @@
                                             <h1>Vaksin Melindungi Kesehatan Masyarakat</h1>
                                         </div>
                                         <div class="home_text">
-                                            <p style="color: black">Setiap orang berhak mendapatkan vaksin berkualitas </p>
+                                            <p style="color: black font-size:16pt;">Setiap orang berhak mendapatkan vaksin berkualitas </p>
                                         </div>
-                                        <div class="button home_button">
+                                       <!-- <div class="button home_button">
                                             <a href="#">read more</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Item -->
+                <div class="owl-item">
+                    <div class="home_slider_background"
+                        style="background-image:url({{ asset('assets/landing/images/bg.jpg') }})">
+                    </div>
+                    <div class="home_content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_content_inner">
+                                    <div class="home_title">
+                                            <h1>Vaksin Melindungi Kesehatan Masyarakat</h1>
                                         </div>
+                                        <div class="home_text">
+                                            <p style="color: black font-size:16pt;">Setiap orang berhak mendapatkan vaksin berkualitas </p>
+                                        </div>
+                                        <!--<div class="button home_button">
+                                            <a href="#">read more</a>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -42,45 +68,15 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="home_content_inner">
-                                        <div class="home_title">
-                                            <h1>Medicine made with care</h1>
+                                    <div class="home_title">
+                                            <h1>Vaksin Melindungi Kesehatan Masyarakat</h1>
                                         </div>
                                         <div class="home_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                                                tempus vestibulum mauris quis aliquam. Integer accumsan sodales
-                                                odio, id tempus velit ullamcorper id. Quisque at erat eu.</p>
+                                            <p style="color: black font-size:16pt;">Setiap orang berhak mendapatkan vaksin berkualitas </p>
                                         </div>
-                                        <div class="button home_button">
+                                        <!--<div class="button home_button">
                                             <a href="#">read more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slider Item -->
-                <div class="owl-item">
-                    <div class="home_slider_background"
-                        style="background-image:url({{ asset('assets/landing/images/home_background_1.jpg') }})">
-                    </div>
-                    <div class="home_content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="home_content_inner">
-                                        <div class="home_title">
-                                            <h1>Medicine made with care</h1>
-                                        </div>
-                                        <div class="home_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                                                tempus vestibulum mauris quis aliquam. Integer accumsan sodales
-                                                odio, id tempus velit ullamcorper id. Quisque at erat eu.</p>
-                                        </div>
-                                        <div class="button home_button">
-                                            <a href="#">read more</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -137,9 +133,8 @@
                                     src="{{ asset('assets/landing/images/phone-call.svg') }}" alt="">
                             </div>
                         </div>
-                        <div class="box_title">Appointments</div>
-                        <div class="box_text">Jika ada perencanaan pertemuan pribadi, silakan hubungi Helpdesk berikut :
-0895 3768 60088</div>
+                        <div class="box_title">Hotline Covid-19</div>
+                        <div class="box_text">Informasi panggilan darurat untuk penannganan Covid-19. Informasi lebih lanjut silahkan hubungi : 119</div>
                     </div>
                 </div>
 
@@ -151,10 +146,10 @@
                                     src="{{ asset('assets/landing/images/bell.svg') }}" alt="">
                             </div>
                         </div>
-                        <div class="box_title">Emergency Cases</div>
-                        {{-- <div class="box_phone">+56 273 45678 235</div> --}}
+                        <div class="box_title">Narahubung</div>
+                        {{-- <div class="box_phone">119</div> --}}
                         <div class="box_emergency_text" style="text-align: justify">
-                            Informasi lebih lanjut hubungi : Contact Center HALO BPOM di nomor telepon 1-500-533,  email halobpom@pom.go.id,  atau Unit Layanan Pengaduan Konsumen (ULPK) Balai Besar/Balai POM di seluruh Indonesia</div>
+                        Jika ada ingin mengetahui informasi secara lengkap, dapat langsung hubungi : 08214121231</div>
                     </div>
                 </div>
 
@@ -200,7 +195,7 @@
             <div class="row">
                 <div class="col">
                     <div class="section_title section_title_light">
-                        <h2>Check Your Identity</h2>
+                        <h2>Cek Data Dirimu</h2>
                     </div>
                 </div>
             </div>
@@ -218,7 +213,7 @@
                                                 src="{{ asset('assets/landing/images/kk.png') }}" alt="">
                                         </div>
                                     </div>
-                                    <div class="box_title" style="margin-top: 140px; margin-left:125px;">No. KK</div>
+                                    <div class="box_title" style="margin-top: 140px; margin-left:120px; color:black;">No. KK</div>
 
                                 </div>
                                 </a>
@@ -233,7 +228,7 @@
                                                 src="{{ asset('assets/landing/images/nik.png') }}" alt="">
                                         </div>
                                     </div>
-                                    <div class="box_title" style="margin-top: 140px; margin-left:125px;">NIK</div>
+                                    <div class="box_title" style="margin-top: 140px; margin-left:125px; color:black;">NIK</div>
                                 </div>
                                 </a>
                             </div>
@@ -241,7 +236,7 @@
                             <!-- Box -->
                             <div class="col-lg-4 box_col" style="color: #f4f4f4; margin-top:20px;">
                                 <h2>BINGUNG CARI DATA VAKSIN?</h2>
-                                <p style="color: #f4f4f4;">Yuk cek data diri kamu disini</p>
+                                <p style="color: #f4f4f4; font-size:18pt;">Yuk cek data diri kamu disini</p>
                             </div>
 
                         </div>
@@ -260,7 +255,7 @@
             <div class="row">
                 <div class="col">
                     <div class="section_title">
-                        <h2>Our Featured Services</h2>
+                        <h2>Pelayanan Kami</h2>
                     </div>
                 </div>
             </div>
@@ -273,9 +268,9 @@
                             <div class="service_icon"><img class="svg')}}"
                                     src="{{ asset('assets/landing/images/service_1.svg') }}" alt="">
                             </div>
-                            <div class="service_title trans_200">Free Checkups</div>
+                            <div class="service_title trans_200">Realtime</div>
                             <div class="service_text">
-                                <p>Silahkan berkunjung ke layanan kami untuk memeriksa apakah anda sudah bisa melakukan vaksinasi dosis berikutnya.
+                                <p>Melakukan pengecekan data secara realtime untuk memudahkan masyarakat dalam mendapatkan data informasi vaksin.
                                 </p>
                             </div>
                         </div>
@@ -289,10 +284,9 @@
                             <div class="service_icon"><img class="svg')}}"
                                     src="{{ asset('assets/landing/images/service_2.svg') }}" alt="">
                             </div>
-                            <div class="service_title trans_200">Screening Exams</div>
+                            <div class="service_title trans_200">Kartu Keluarga</div>
                             <div class="service_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo,
-                                    finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin.
+                                <p>Untuk melakukan pengecekan data vaksin secara langsung dengan menampilkan semua data keluarga.
                                 </p>
                             </div>
                         </div>
@@ -306,61 +300,9 @@
                             <div class="service_icon"><img class="svg')}}"
                                     src="{{ asset('assets/landing/images/service_3.svg') }}" alt="">
                             </div>
-                            <div class="service_title trans_200">RMI Services</div>
+                            <div class="service_title trans_200">NIK</div>
                             <div class="service_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo,
-                                    finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Service -->
-                <div class="col-lg-4 col-md-6 service_col">
-                    <a href="services.html">
-                        <div class="service text-center trans_200">
-                            <div class="service_icon"><img class="svg')}}"
-                                    src="{{ asset('assets/landing/images/service_4.svg') }}" alt="">
-                            </div>
-                            <div class="service_title trans_200">Dentistry</div>
-                            <div class="service_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo,
-                                    finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Service -->
-                <div class="col-lg-4 col-md-6 service_col">
-                    <a href="services.html">
-                        <div class="service text-center trans_200">
-                            <div class="service_icon"><img class="svg')}}"
-                                    src="{{ asset('assets/landing/images/service_5.svg') }}" alt="">
-                            </div>
-                            <div class="service_title trans_200">Neonatology</div>
-                            <div class="service_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo,
-                                    finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Service -->
-                <div class="col-lg-4 col-md-6 service_col">
-                    <a href="services.html">
-                        <div class="service text-center trans_200">
-                            <div class="service_icon"><img class="svg')}}"
-                                    src="{{ asset('assets/landing/images/service_6.svg') }}" alt="">
-                            </div>
-                            <div class="service_title trans_200">Biochemistry</div>
-                            <div class="service_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo,
-                                    finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin.
+                                <p>Untuk melakukan pengecekan data vaksin secara langsung dengan menampilkan data pribadi.
                                 </p>
                             </div>
                         </div>

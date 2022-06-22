@@ -706,9 +706,9 @@ section
 }
 .home_text p
 {
-	font-size: 16px;
+	font-size: 16pt;
 	font-weight: 500;
-	color: #747474;
+	color: #272727;
 	line-height: 1.75;
 }
 .home_button
@@ -749,7 +749,7 @@ section
 {
 	width: 100%;
 	height: 287px;
-	background: #74749e;
+	background: #eaeaea;
 	padding-left: 42px;
 	padding-top: 29px;
 	-webkit-transition: all 200ms ease;
@@ -795,11 +795,12 @@ section
 	font-weight: 500;
 	color: #FFFFFF;
 	margin-top: 11px;
+
 }
 .box1_title
 {
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: bolder;
 	color: #FFFFFF;
 	margin-top: 11px;
 }
