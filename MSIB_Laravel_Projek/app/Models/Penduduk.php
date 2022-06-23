@@ -23,6 +23,6 @@ class Penduduk extends Model
     // belongsTo dari tabel FK ke PK
     public function kartuKeluargaFk()
     {
-        return $this->belongsTo(Kk::class, 'id_kk', 'id');
+        return $this->belongsTo(KartuKeluarga::class, 'id_kk', 'id');
     }
 }

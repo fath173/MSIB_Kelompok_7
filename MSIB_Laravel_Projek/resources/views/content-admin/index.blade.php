@@ -52,6 +52,14 @@
                                     html: '{{ $message }}',
                                 })
                             </script>
+                            @elseif ($message = Session::get('warning'))
+                            <script>
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Warning!',
+                                    html: '{{ $message }}',
+                                })
+                            </script>
                             @endif
 
                             @yield('isi-contentAdmin')

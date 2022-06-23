@@ -40,6 +40,7 @@ Route::view('/nik', 'content-landing.nik.nik')->name('landing-nik');
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/beranda', [homeAdmin::class, 'index'])->name('admin-home');
     Route::get('/penduduk', [PendudukCtrl::class, 'index'])->name('admin-penduduk');
+    Route::post('/penduduk-tambah', [PendudukCtrl::class, 'store'])->name('admin-pendudukTambah');
     Route::post('/penduduk-hapus', [PendudukCtrl::class, 'store'])->name('admin-pendudukHapus');
 
     // CRUD My Profile

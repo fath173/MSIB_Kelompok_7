@@ -42,15 +42,13 @@
                             <label for="select1" class="form-label">Dosis</label>
                             <select class="form-select" name="dosis" id="select1"
                                 aria-label="Default select example">
-                                @if ($d->dosis == '0')
-                                    <option value="0" selected>Tidak Vaksin</option>
-                                @else
-                                    <option value="{{ $d->dosis }}" selected>{{ $d->dosis }}</option>
-                                @endif
-                                <option value="0">Tidak Vaksin</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                @foreach ($dataDosis as $ds)
+                                    @if ($d->id_dosis == $ds->id)
+                                        <option value="{{ $ds->id }}" selected>{{ $ds->nama_dosis }}</option>
+                                    @else
+                                        <option value="{{ $ds->id }}">{{ $ds->nama_dosis }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>

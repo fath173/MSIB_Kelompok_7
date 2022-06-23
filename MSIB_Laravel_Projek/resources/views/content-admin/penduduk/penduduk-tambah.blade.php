@@ -5,7 +5,8 @@
                 <h5 class="modal-title">Tambah Penduduk</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="controller/backend/PendudukCtrl.php" method="POST">
+            <form action="{{ route('admin-pendudukTambah') }}" method="POST">
+                @csrf
                 <div class="modal-body">
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
@@ -74,7 +75,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
-                    <button type="submit" name="proses" value="tambah" class="btn btn-primary"> Simpan </button>
+                    <button type="submit" class="btn btn-primary"> Simpan </button>
                 </div>
             </form>
         </div>

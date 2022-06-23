@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\KartuKeluarga;
 use App\Models\Penduduk;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,57 @@ class PendudukCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'no_kk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'gender' => 'required',
+            'status' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $kk = KartuKeluarga::where('no_kk', $request->no_kk)->get();
+
+        if ($request->status == 'kepala keluarga') {
+            if (!empty($kk[0])) {
+                return redirect()->route('admin-penduduk')
+                    ->with('warning', 'Kepala Keluarga dengan No KK tersebut sudah ada');
+            } else {
+                $idKK = KartuKeluarga::insertGetId([
+                    'no_kk' => $request->no_kk,
+                ]);
+
+                Penduduk::create([
+                    'id_kk' => $idKK,
+                    'nik' => $request->nik,
+                    'nama' => $request->nama,
+                    'tempat_lahir' => $request->tempat_lahir,
+                    'tanggal_lahir' => $request->tanggal_lahir,
+                    'gender' => $request->gender,
+                    'status' => $request->status,
+                    'alamat' => $request->alamat,
+                ]);
+                return redirect()->route('admin-penduduk')
+                    ->with('success', 'Data Penduduk Berhasil Tersimpan.');
+            }
+        } else {
+            if (!empty($kk[0])) {
+                Penduduk::create([
+                    'id_kk' => $kk[0]->id,
+                    'nik' => $request->nik,
+                    'nama' => $request->nama,
+                    'tempat_lahir' => $request->tempat_lahir,
+                    'tanggal_lahir' => $request->tanggal_lahir,
+                    'gender' => $request->gender,
+                    'status' => $request->status,
+                    'alamat' => $request->alamat,
+                ]);
+                return redirect()->route('admin-penduduk')
+                    ->with('success', 'Data Penduduk Berhasil Tersimpan.');
+            }
+        }
     }
 
     /**

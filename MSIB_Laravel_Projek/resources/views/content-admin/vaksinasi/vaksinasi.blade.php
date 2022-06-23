@@ -28,7 +28,7 @@
                                 <td><strong><?= $loop->iteration ?></strong></td>
                                 <td>{{ $d->pendudukFk->nama }}</td>
                                 <td>{{ $d->jenisVaksinFk->nama_vaksin }}</td>
-                                <td>{{ $d->dosis }}</td>
+                                <td>{{ $d->dosisFk->nama_dosis }}</td>
                                 <td>{{ $d->tgl_vaksin }}</td>
                                 <td>{{ $d->keterangan }}</td>
                                 </td>
@@ -87,10 +87,10 @@
                             var dataDosis = ''
                             for (const d in data) {
                                 dataDosis +=
-                                    `<option value="${data[d].id}">${data[d].nama_dosis}</option>`
+                                    `<option value="${data[d].id}">${data[d].nama_dosis}</option>`;
                             }
-                            // console.log(dataDosis);
                             document.getElementById("dosis").innerHTML = dataDosis
+                            // console.log(dataDosis);
                         }
                     }
                 });

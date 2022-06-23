@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use App\Models\Kk;
 use Illuminate\Http\Request;
 
-class KkCtrl extends Controller
+class KartuKeluargaCtrl extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,6 @@ class KkCtrl extends Controller
     public function index()
     {
         //
-        $data[] = (object)[
-            'id' => 1,
-            'no_kk' => 123123123,
-
-        ];
-        // dd($data);
-
-        return view('content-admin.kartuKeluarga.kk', [
-            'u' => $data
-        ]);
     }
 
     /**
@@ -51,10 +41,10 @@ class KkCtrl extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kk  $kk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Kk $kk)
+    public function show($id)
     {
         //
     }
@@ -62,10 +52,10 @@ class KkCtrl extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kk  $kk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kk $kk)
+    public function edit($id)
     {
         //
     }
@@ -74,10 +64,10 @@ class KkCtrl extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kk  $kk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kk $kk)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +75,10 @@ class KkCtrl extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kk  $kk
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kk $kk)
+    public function destroy($id)
     {
         //
     }

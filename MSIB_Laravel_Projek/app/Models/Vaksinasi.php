@@ -14,7 +14,7 @@ class Vaksinasi extends Model
         'id_penduduk',
         'id_vaksin',
         'tgl_vaksin',
-        'dosis',
+        'id_dosis',
         'keterangan',
     ];
 
@@ -23,6 +23,12 @@ class Vaksinasi extends Model
     {
         return $this->belongsTo(Jenis_Vaksin::class, 'id_vaksin', 'id');
     }
+    // belongsTo dari tabel FK ke PK
+    public function dosisFk()
+    {
+        return $this->belongsTo(Dosis::class, 'id_dosis', 'id');
+    }
+
 
     // belongsTo dari tabel FK ke PK
     public function pendudukFk()

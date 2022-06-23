@@ -20,10 +20,12 @@ class VaksinasiCtrl extends Controller
     {
         $data = Vaksinasi::orderBy('id', 'desc')->get();
         $jenisVaksin = Jenis_Vaksin::all();
+        $dosis = Dosis::all();
 
         return view('content-admin.vaksinasi.vaksinasi', [
             'data_vaksinasi' => $data,
             'dataVaksin' => $jenisVaksin,
+            'dataDosis' => $dosis,
         ]);
     }
 
@@ -43,7 +45,7 @@ class VaksinasiCtrl extends Controller
             'id_penduduk' => $pdd[0]->id,
             'id_vaksin' => $request->jenis_vaksin,
             'tgl_vaksin' => $request->tgl_vaksin,
-            'dosis' => $request->dosis,
+            'id_dosis' => $request->dosis,
             'keterangan' => $request->keterangan,
         ]);
 
@@ -68,7 +70,7 @@ class VaksinasiCtrl extends Controller
             'id_penduduk' => $pdd[0]->id,
             'id_vaksin' => $request->jenis_vaksin,
             'tgl_vaksin' => $request->tgl_vaksin,
-            'dosis' => $request->dosis,
+            'id_dosis' => $request->dosis,
             'keterangan' => $request->keterangan,
         ]);
 
