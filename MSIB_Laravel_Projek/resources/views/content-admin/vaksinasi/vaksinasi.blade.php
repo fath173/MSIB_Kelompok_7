@@ -42,8 +42,8 @@
                                         &nbsp;
                                         <form method="POST" action="{{ route('admin-vaksinasiHapus', $d->id) }}">
                                             @csrf
-                                            <button class="btn btn-sm btn-danger" type="submit" name="proses" value="hapus"
-                                                onclick="return confirm('Anda Yakin Data dihapus?')"><i
+                                            <button class="btn btn-sm btn-danger" type="submit" name="proses"
+                                                value="hapus" onclick="return confirm('Anda Yakin Data dihapus?')"><i
                                                     class="bx bx-trash me-1"></i>
                                             </button>
                                         </form>
@@ -81,10 +81,16 @@
                     },
                     success: function(data) {
                         if (data == 0) {
+                            document.getElementById("dosis").innerHTML = ''
                             console.log(data);
                         } else {
-                            console.log(data);
-                            ("#dosis").html(data);
+                            var dataDosis = ''
+                            for (const d in data) {
+                                dataDosis +=
+                                    `<option value="${data[d].id}">${data[d].nama_dosis}</option>`
+                            }
+                            // console.log(dataDosis);
+                            document.getElementById("dosis").innerHTML = dataDosis
                         }
                     }
                 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dosis;
 use App\Models\Jenis_Vaksin;
 use App\Models\Penduduk;
 use App\Models\Vaksinasi;
@@ -90,12 +91,19 @@ class VaksinasiCtrl extends Controller
         if ($pdd->isEmpty()) {
             return 0;
         } else {
-            $va = Vaksinasi::where('id_penduduk', $pdd[0]->id)->get();
+            $dosis = Dosis::all();
 
-            $output = ' <option value="0">Tidak Vaksin</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>';
+            $idDosis = [];
+            foreach ($dosis as $d) {
+                $va = Vaksinasi::where('id_penduduk', $pdd[0]->id)
+                    ->where('id_dosis', $d->id)->get();
+                if (empty($va[0])) {
+                    $idDosis[] .= $d->id;
+                }
+            }
+
+            $output = Dosis::whereIn('id', $idDosis)->get();
+
             return $output;
         }
     }

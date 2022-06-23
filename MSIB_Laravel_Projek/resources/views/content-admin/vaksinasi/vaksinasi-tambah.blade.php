@@ -28,11 +28,12 @@
                         </div>
                         <div class="col mb-0">
                             <label for="select1" class="form-label">Dosis</label>
-                            <select class="form-select" name="dosis" id="dosis" aria-label="Default select example">
-                                <option value="0">Tidak Vaksin</option>
+                            <select class="form-select" name="dosis" id="dosis"
+                                aria-label="Default select example">
+                                {{-- <option value="0">Tidak Vaksin</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="3">3</option> --}}
                             </select>
                         </div>
                     </div>
