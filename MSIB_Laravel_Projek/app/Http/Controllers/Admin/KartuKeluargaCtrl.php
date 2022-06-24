@@ -15,8 +15,8 @@ class KartuKeluargaCtrl extends Controller
      */
     public function index()
     {
-        $dataKK = KartuKeluarga::all();
-        dd($dataKK);
+        $dataKK = KartuKeluarga::orderBy('id', 'desc')->get();
+        // dd($dataKK->pendudukFk);
         return view('content-admin.kartuKeluarga.kk', [
             'dataKK' => $dataKK
         ]);
@@ -74,7 +74,26 @@ class KartuKeluargaCtrl extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'no_kk' => 'required',
+        ]);
+
+        $kk = KartuKeluarga::findOrFail($id);
+        // dd($request);
+        if ($request->foto) {
+            $nameImage = microtime() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('files/foto-kk'), str_replace(' ', '', $nameImage));
+            $kk->update([
+                'no_kk' => $request->no_kk,
+                'foto_kk' => str_replace(' ', '', $nameImage),
+            ]);
+        } else {
+            $kk->update([
+                'no_kk' => $request->no_kk,
+            ]);
+        }
+
+        return redirect()->route('admin-kk');
     }
 
     /**
@@ -85,6 +104,9 @@ class KartuKeluargaCtrl extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kk = KartuKeluarga::findOrFail($id);
+        $kk->delete();
+
+        return redirect()->route('admin-kk');
     }
 }

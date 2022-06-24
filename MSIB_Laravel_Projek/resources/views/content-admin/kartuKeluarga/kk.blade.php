@@ -9,7 +9,7 @@
                         <tr>
                             <th>No</th>
                             <th>No Kartu Keluarga</th>
-                            <th>Jumlah Keluarga</th>
+                            <th>Anggota Keluarga</th>
                             <th>Foto KK</th>
                             <th>Opsi</th>
                         </tr>
@@ -19,8 +19,10 @@
                             <tr>
                                 <td><strong><?= $loop->iteration ?></strong></td>
                                 <td>{{ $p->no_kk }}</td>
-                                <td>12</td>
-                                <td>Foto KK</td>
+                                <td>{{ $p->pendudukFk->count() }} Orang</td>
+                                <td>
+                                    <img src="{{ asset('files/foto-kk/' . $p->foto_kk) }}" width="100px" alt="">
+                                </td>
                                 <td>
                                     <div class="d-flex">
                                         <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
@@ -29,9 +31,10 @@
                                         </button>
                                         @include('content-admin.kartuKeluarga.kk-edit')
                                         &nbsp;
-                                        <form method="POST" action="{{-- {{ route('admin-pendudukHapus') }} --}}">
-                                            <button class="btn btn-sm btn-danger" type="submit" name="proses"
-                                                value="hapus" onclick="return confirm('Anda Yakin Data dihapus?')"><i
+                                        <form method="POST" action="{{ route('admin-kkHapus', $p->id) }}">
+                                            @csrf
+                                            <button class="btn btn-sm btn-danger" type="submit"
+                                                onclick="return confirm('Anda Yakin Data dihapus?')"><i
                                                     class="bx bx-trash me-1"></i> </button>
                                             <input type="hidden" name="idx" value="{{ $p->id }}" />
                                         </form>

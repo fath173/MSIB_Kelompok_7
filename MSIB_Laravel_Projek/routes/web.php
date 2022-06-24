@@ -64,6 +64,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     //CRUD Kartu Keluarga
     Route::get('/kartu-keluarga', [KartuKeluargaCtrl::class, 'index'])->name('admin-kk');
+    Route::post('/kartu-keluarga-update/{id}', [KartuKeluargaCtrl::class, 'update'])->name('admin-kkUpdate');
+    Route::post('/kartu-keluarga-hapus/{id}', [KartuKeluargaCtrl::class, 'destroy'])->name('admin-kkHapus');
 
     // CRUD Vaksinasi
     Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');
