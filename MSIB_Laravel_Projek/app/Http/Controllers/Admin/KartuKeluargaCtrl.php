@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\KartuKeluarga;
 use Illuminate\Http\Request;
 
 class KartuKeluargaCtrl extends Controller
@@ -14,7 +15,11 @@ class KartuKeluargaCtrl extends Controller
      */
     public function index()
     {
-        //
+        $dataKK = KartuKeluarga::all();
+        dd($dataKK);
+        return view('content-admin.kartuKeluarga.kk', [
+            'dataKK' => $dataKK
+        ]);
     }
 
     /**

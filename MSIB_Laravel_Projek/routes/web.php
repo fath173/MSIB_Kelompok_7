@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
 use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
+use App\Http\Controllers\Admin\KartuKeluargaCtrl;
 use App\Http\Controllers\Admin\MyProfileCtrl;
 use App\Http\Controllers\Admin\PendudukCtrl;
-use App\Http\Controllers\Admin\kkCtrl;
 use App\Http\Controllers\Admin\PetugasCtrl;
 use App\Http\Controllers\Admin\VaksinasiCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
@@ -39,6 +39,8 @@ Route::view('/nik', 'content-landing.nik.nik')->name('landing-nik');
 // middleware akan jalan ketika sudah login
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/beranda', [homeAdmin::class, 'index'])->name('admin-home');
+
+    // CRUD Penduduk
     Route::get('/penduduk', [PendudukCtrl::class, 'index'])->name('admin-penduduk');
     Route::post('/penduduk-tambah', [PendudukCtrl::class, 'store'])->name('admin-pendudukTambah');
     Route::post('/penduduk-update/{id}', [PendudukCtrl::class, 'update'])->name('admin-pendudukUpdate');
@@ -60,8 +62,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/petugas-update/{id}', [PetugasCtrl::class, 'update'])->name('admin-petugas-update');
     Route::post('/petugas-hapus/{id}', [PetugasCtrl::class, 'destroy'])->name('admin-petugas-hapus');
 
-    //KK-admin
-    Route::get('/kartu-keluarga', [kkCtrl::class, 'index'])->name('admin-kk');
+    //CRUD Kartu Keluarga
+    Route::get('/kartu-keluarga', [KartuKeluargaCtrl::class, 'index'])->name('admin-kk');
 
     // CRUD Vaksinasi
     Route::get('/vaksinasi', [VaksinasiCtrl::class, 'index'])->name('admin-vaksinasi');

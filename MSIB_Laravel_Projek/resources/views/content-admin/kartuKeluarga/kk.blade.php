@@ -10,15 +10,17 @@
                             <th>No</th>
                             <th>No Kartu Keluarga</th>
                             <th>Jumlah Keluarga</th>
+                            <th>Foto KK</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($u as $p)
+                        @foreach ($dataKK as $p)
                             <tr>
                                 <td><strong><?= $loop->iteration ?></strong></td>
                                 <td>{{ $p->no_kk }}</td>
                                 <td>12</td>
+                                <td>Foto KK</td>
                                 <td>
                                     <div class="d-flex">
                                         <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
@@ -28,8 +30,8 @@
                                         @include('content-admin.kartuKeluarga.kk-edit')
                                         &nbsp;
                                         <form method="POST" action="{{-- {{ route('admin-pendudukHapus') }} --}}">
-                                            <button class="btn btn-sm btn-danger" type="submit" name="proses" value="hapus"
-                                                onclick="return confirm('Anda Yakin Data dihapus?')"><i
+                                            <button class="btn btn-sm btn-danger" type="submit" name="proses"
+                                                value="hapus" onclick="return confirm('Anda Yakin Data dihapus?')"><i
                                                     class="bx bx-trash me-1"></i> </button>
                                             <input type="hidden" name="idx" value="{{ $p->id }}" />
                                         </form>

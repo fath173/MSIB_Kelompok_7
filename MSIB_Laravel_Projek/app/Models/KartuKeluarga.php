@@ -14,4 +14,10 @@ class KartuKeluarga extends Model
         'no_kk',
         'foto_kk',
     ];
+
+    public function pendudukFk()
+    {
+        $detail = $this->hasMany(Penduduk::class, 'id_kk', 'id');
+        return $detail;
+    }
 }
