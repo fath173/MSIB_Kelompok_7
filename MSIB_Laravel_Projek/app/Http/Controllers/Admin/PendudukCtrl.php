@@ -124,9 +124,38 @@ class PendudukCtrl extends Controller
      * @param  \App\Models\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penduduk $penduduk)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'no_kk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'gender' => 'required',
+            'status' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        try {
+            $kk = KartuKeluarga::where('no_kk', $request->no_kk)->get();
+            $pdd = Penduduk::findOrFail($id);
+            $pdd->update([
+                'id_kk' => $kk[0]->id,
+                'nik' => $request->nik,
+                'nama' => $request->nama,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'gender' => $request->gender,
+                'status' => $request->status,
+                'alamat' => $request->alamat,
+            ]);
+            return redirect()->route('admin-penduduk')
+                ->with('success', 'Data Penduduk Berhasil Tersimpan.');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin-penduduk')
+                ->with('warning', 'Gagal Update Data Penduduk');
+        }
     }
 
     /**
@@ -135,8 +164,16 @@ class PendudukCtrl extends Controller
      * @param  \App\Models\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penduduk $penduduk)
+    public function destroy($id)
     {
-        //
+        try {
+            $pdd = Penduduk::findOrFail($id);
+            $pdd->delete();
+            return redirect()->route('admin-penduduk')
+                ->with('success', 'Data Penduduk Telah Dihapus');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin-penduduk')
+                ->with('warning', 'Gagal Hapus Penduduk');
+        }
     }
 }

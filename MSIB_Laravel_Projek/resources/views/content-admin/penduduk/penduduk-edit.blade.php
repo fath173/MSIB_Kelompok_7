@@ -6,13 +6,14 @@
                 <h5 class="modal-title" id="exampleModalLabel3">{{ $p->nama }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="controller/backend/PendudukCtrl.php" method="POST">
+            <form action="{{ route('admin-pendudukUpdate', $p->id) }}" method="POST">
+                @csrf
                 <div class="modal-body">
                     <div class="row g-2 mb-3">
                         <div class="col mb-0">
                             <label for="nokk" class="form-label">No KK</label>
-                            <input type="text" id="nokk" name="no_kk" class="form-control" value="{{ $p->no_kk }}"
-                                placeholder="Tulis No KK" />
+                            <input type="text" id="nokk" name="no_kk" class="form-control"
+                                value="{{ $p->kartuKeluargaFk->no_kk }}" placeholder="Tulis No KK" />
                         </div>
                     </div>
                     <div class="row g-2 mb-3">
@@ -60,19 +61,16 @@
                             <label for="select2" class="form-label">Status</label>
                             <select class="form-select" name="status" id="select2"
                                 aria-label="Default select example">
-                                @if ($p->status == 'kepala keluarga')
-                                    <option value="kepala keluarga" selected>Kepala Keluarga</option>
-                                    <option value="istri">Istri</option>
-                                    <option value="anak">Anak</option>
-                                @elseif ($p->status == 'istri')
-                                    <option value="kepala keluarga">Kepala Keluarga</option>
-                                    <option value="istri" selected>Istri</option>
-                                    <option value="anak">Anak</option>
-                                @else
-                                    <option value="kepala keluarga">Kepala Keluarga</option>
-                                    <option value="istri">Istri</option>
-                                    <option value="anak" selected>Anak</option>
-                                @endif
+                                @php
+                                    $status = ['kepala keluarga', 'istri', 'anak'];
+                                @endphp
+                                @foreach ($status as $st)
+                                    @if ($p->status == $st)
+                                        <option value="{{ $st }}" selected>{{ $st }}</option>
+                                    @else
+                                        <option value="{{ $st }}">{{ $st }}</option>
+                                    @endif
+                                @endforeach
 
                             </select>
                         </div>
@@ -91,8 +89,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
-                    <button type="submit" name="proses" value="ubah" class="btn btn-primary"> Update </button>
-                    <input type="hidden" name="idx" value="{{ $p->id }}">
+                    <button type="submit" class="btn btn-primary"> Update </button>
                 </div>
             </form>
         </div>

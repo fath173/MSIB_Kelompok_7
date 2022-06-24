@@ -41,7 +41,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/beranda', [homeAdmin::class, 'index'])->name('admin-home');
     Route::get('/penduduk', [PendudukCtrl::class, 'index'])->name('admin-penduduk');
     Route::post('/penduduk-tambah', [PendudukCtrl::class, 'store'])->name('admin-pendudukTambah');
-    Route::post('/penduduk-hapus', [PendudukCtrl::class, 'store'])->name('admin-pendudukHapus');
+    Route::post('/penduduk-update/{id}', [PendudukCtrl::class, 'update'])->name('admin-pendudukUpdate');
+    Route::post('/penduduk-hapus/{id}', [PendudukCtrl::class, 'destroy'])->name('admin-pendudukHapus');
 
     // CRUD My Profile
     Route::get('/profile', [MyProfileCtrl::class, 'index'])->name('admin-profile');
