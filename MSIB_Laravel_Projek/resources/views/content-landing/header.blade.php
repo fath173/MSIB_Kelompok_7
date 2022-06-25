@@ -10,7 +10,15 @@
                         <div class="breadcrumbs">
                             <ul>
                                 <li><a href="{{ route('landing-home') }}">Home</a></li>
-                                <li>{{ Request::is('about') ? 'About Us' : '' }}</li>
+                                @if (Request::is('about'))
+                                    <li>About Us</li>
+                                @elseif (Request::is('search-kk'))
+                                    <li>Search By KK</li>
+                                @elseif (Request::is('search-nik'))
+                                    <li>Search By NIK</li>
+                                @else
+                                    Search
+                                @endif
                             </ul>
                         </div>
                     </div>

@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\PendudukCtrl;
 use App\Http\Controllers\Admin\PetugasCtrl;
 use App\Http\Controllers\Admin\VaksinasiCtrl;
 use App\Http\Controllers\Landing\HomeCtrl;
+use App\Http\Controllers\Landing\SearchByCtrl;
+use App\Http\Controllers\Landing\SearchByNikCtrl;
 use App\Http\Controllers\MultiUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +34,9 @@ Auth::routes();
 Route::get('/', [MultiUser::class, 'index'])->name('/');
 Route::get('/home', [HomeCtrl::class, 'index'])->name('landing-home');
 Route::view('/about', 'content-landing.about.about')->name('landing-about');
-Route::view('/kk', 'content-landing.kk.kk')->name('landing-kk');
-Route::view('/nik', 'content-landing.nik.nik')->name('landing-nik');
+Route::view('/search-kk', 'content-landing.kk.kk')->name('landing-kk');
+Route::view('/search-nik', 'content-landing.nik.nik')->name('landing-nik');
+Route::post('/getSearchByNik', [SearchByCtrl::class, 'getByNIK'])->name('landing-getByNik');
 
 
 // middleware akan jalan ketika sudah login
