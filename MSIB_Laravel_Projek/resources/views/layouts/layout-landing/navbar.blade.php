@@ -26,11 +26,16 @@
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <nav class="main_nav ml-auto">
                             <ul>
-                                <li><a href="{{ route('landing-home') }}">Home</a></li>
-                                <li><a href="{{ route('landing-kk') }}">Check KK</a></li>
-                                <li><a href="{{ route('landing-nik') }}">Check NIK</a></li>
-                                <li><a href="{{ route('landing-about') }}">About Us</a></li>
-                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li class="{{ Nav::isRoute('landing-home') }}"><a
+                                        href="{{ route('landing-home') }}">Home</a></li>
+                                <li class="{{ Nav::isRoute('landing-kk') }}"><a
+                                        href="{{ route('landing-kk') }}">Check KK</a></li>
+                                <li class="{{ Nav::isRoute('landing-nik') }}"><a
+                                        href="{{ route('landing-nik') }}">Check NIK</a></li>
+                                <li class="{{ Nav::isRoute('landing-about') }}"><a
+                                        href="{{ route('landing-about') }}">About Us</a></li>
+                                <li class="{{ Nav::isRoute('login') }}"><a href="{{ route('login') }}">Login</a>
+                                </li>
                             </ul>
                         </nav>
                         <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
