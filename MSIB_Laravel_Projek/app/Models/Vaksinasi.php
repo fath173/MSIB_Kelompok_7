@@ -23,6 +23,7 @@ class Vaksinasi extends Model
     {
         return $this->belongsTo(Jenis_Vaksin::class, 'id_vaksin', 'id');
     }
+
     // belongsTo dari tabel FK ke PK
     public function dosisFk()
     {

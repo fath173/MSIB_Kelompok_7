@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <!-- KK Content -->
-                <div class="col-lg-12 py-5" style="margin-top: 10%">
+                <div class="col-lg-12 py-5" style="margin-top: 5%">
                     <div class="page-section banner-seo-check">
                         <div class="wrap bg-image" style="background-color:rgb(224, 224, 229);">
                             <div class="container text-center">
@@ -48,20 +48,12 @@
                                     <div class="feature_text" id="tabel-data">
                                         <table class="table table-striped">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">First</th>
-                                                    <th scope="col">Last</th>
-                                                    <th scope="col">Handle</th>
+                                                <tr id="tabelJudul">
+                                                    <!-- tag th nya ga ditulis gapapa -->
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                </tr>
+                                            <tbody id="tabelData">
+                                                <!-- tag tr td nya cukup ditulis di script -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -85,8 +77,15 @@
                 }
             });
 
+            // On Enter
+            $("input[name~='nik']").on('keypress', function(e) {
+                var nik = $(this).val();
+                if (e.which == 13) {
+                    loadData(nik)
+                }
+            });
 
-
+            // On button check click
             $("#btn-check").on('click', function() {
                 var nik = $("input[name~='nik']").val()
                 // alert('berhasil:' + dat);
@@ -94,6 +93,7 @@
             });
 
             function loadData(nik) {
+
                 $.ajax({
                     type: "POST",
                     url: "{{ route('landing-getByNik') }}",
@@ -102,16 +102,33 @@
                     },
                     success: function(data) {
                         if (data == 0) {
-                            document.getElementById("dosis").innerHTML = ''
+                            document.getElementById('tabelJudul').innerHTML = 'Tidak Ada Data!'
+                            document.getElementById("tabelData").innerHTML = ''
                             console.log(data);
                         } else {
-                            // var dataDosis = ''
-                            // for (const d in data) {
-                            //     dataDosis +=
-                            //         `<option value="${data[d].id}">${data[d].id}</option>`;
-                            // }
-                            // document.getElementById("dosis").innerHTML = dataDosis
-                            console.log(data[0]);
+                            let judul = ['No', 'Nama', 'Jenis Vaksin', 'Dosis',
+                                'Tanggal Vaksin', 'Keterangan'
+                            ];
+                            let dataJudul = ''
+                            for (const j of judul) {
+                                dataJudul = dataJudul + `<th scope="col">${j}</th>`
+                            }
+                            document.getElementById('tabelJudul').innerHTML = dataJudul
+
+                            var dataVaksin = ''
+                            var no = 1;
+                            for (const d in data) {
+                                dataVaksin += `<tr>
+                                                    <th scope="row">${no++}</th>
+                                                    <td>${data[d].nama}</td>
+                                                    <td>${data[d].jenis_vaksin}</td>
+                                                    <td>${data[d].dosis}</td>
+                                                    <td>${data[d].tanggal}</td>
+                                                    <td>${data[d].keterangan}</td>
+                                               </tr>`
+                            }
+                            document.getElementById("tabelData").innerHTML = dataVaksin
+                            // console.log(dataVaksin);
                         }
                     }
                 });

@@ -18,7 +18,7 @@ class CreateVaksinasiTable extends Migration
             $table->foreignId('id_penduduk')->constrained('penduduk')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('id_vaksin')->constrained('jenis_vaksin')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('id_dosis')->constrained('dosis')->onUpdate('cascade')->onDelete('cascade');
-            $table->date('tgl_vaksin');
+            $table->date('tgl_vaksin')->nullable();
             $table->string('keterangan', 50)->nullable();
             $table->timestamps();
         });

@@ -34,9 +34,12 @@ Auth::routes();
 Route::get('/', [MultiUser::class, 'index'])->name('/');
 Route::get('/home', [HomeCtrl::class, 'index'])->name('landing-home');
 Route::view('/about', 'content-landing.about.about')->name('landing-about');
+
+// Search By kk & nik
 Route::view('/search-kk', 'content-landing.kk.kk')->name('landing-kk');
 Route::view('/search-nik', 'content-landing.nik.nik')->name('landing-nik');
 Route::post('/getSearchByNik', [SearchByCtrl::class, 'getByNIK'])->name('landing-getByNik');
+Route::post('/getSearchByKK', [SearchByCtrl::class, 'getByKK'])->name('landing-getByKK');
 
 
 // middleware akan jalan ketika sudah login
