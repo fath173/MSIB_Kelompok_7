@@ -57,7 +57,8 @@ class PetugasCtrl extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        return redirect()->route('admin-petugas');
+        return redirect()->route('admin-petugas')
+        ->with('success', 'Data petugas Berhasil Tersimpan.');
     }
 
     /**
@@ -103,6 +104,9 @@ class PetugasCtrl extends Controller
         $petugas = User::findOrFail($id);
 
         if ($request->foto) {
+            if($petugas->foto != '-' && !empty($petugas->foto)){
+                unlink('files/foto-profile/'.$petugas->foto);
+            }
             $gambar = md5($request->foto . microtime() . '.' . $request->foto->extension());
             $request->foto->move(public_path('files/foto-profile'), $gambar);
             $petugas->update([
@@ -123,7 +127,8 @@ class PetugasCtrl extends Controller
             ]);
         }
 
-        return redirect()->route('admin-petugas');
+        return redirect()->route('admin-petugas')
+        ->with('success', 'Data petugas Berhasil Terupdate.');
     }
 
     /**
@@ -136,8 +141,14 @@ class PetugasCtrl extends Controller
     {
         // dd($id);
         $petugas = User::findOrFail($id);
+
+        if($petugas->foto != '-' && !empty($petugas->foto)){
+            unlink('files/foto-profile/'.$petugas->foto);
+        }
+
         $petugas->delete();
 
-        return redirect()->route('admin-petugas');
+        return redirect()->route('admin-petugas')
+        ->with('success', 'Data petugas Berhasil Terhapus.');
     }
 }
