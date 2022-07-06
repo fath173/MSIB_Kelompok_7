@@ -106,6 +106,19 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
+                                                    <label>Gender</label>
+                                                    <select class="form-select" name="gender"
+                                                        aria-label="Default select example">
+                                                        <option selected>Gender</option>
+                                                        <option value="L">Laki-laki</option>
+                                                        <option value="P">Perempuan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
                                                     <label>Password</label>
                                                     <input type="password" class="form-control" placeholder="Password">
                                                 </div>
@@ -114,7 +127,17 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="">
-                                                    <p style="color: rgb(0, 0, 0);">Upload gambar</p>
+                                                    <p style="color: rgb(144, 144, 144);">Edit foto profile</p>
+                                                    <input type="file" class="form-control border-0" name="foto"
+                                                        placeholder="Upload gambar" style="height: 55px; color: black"
+                                                        accept=".png, .jpg, .jpeg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <p style="color: rgb(144, 144, 144);">Edit Background profile</p>
                                                     <input type="file" class="form-control border-0" name="foto"
                                                         placeholder="Upload gambar" style="height: 55px; color: black"
                                                         accept=".png, .jpg, .jpeg">
