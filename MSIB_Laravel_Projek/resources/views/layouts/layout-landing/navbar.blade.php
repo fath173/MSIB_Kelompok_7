@@ -27,8 +27,7 @@
                         <nav class="main_nav ml-auto">
                             <ul>
                                 <li><a href="{{ route('landing-home') }}">Home</a></li>
-                                <li><a href="{{ route('landing-kk') }}">Check KK</a></li>
-                                <li><a href="{{ route('landing-nik') }}">Check NIK</a></li>
+                                <li><a href="#search">Search</a></li>
                                 <li><a href="{{ route('landing-about') }}">About Us</a></li>
                                 <li><a href="{{ route('login') }}">Login</a></li>
                             </ul>

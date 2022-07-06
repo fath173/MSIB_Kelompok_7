@@ -170,7 +170,7 @@
                             <h2>Tim medis yang hebat untuk membantu kebutuhan Anda</h2>
                         </div>
                         <div class="about_text">
-                            <p style="text-align: justify">Setelah melakukan vaksin, akan dilakukan observasi selama 15 menit. Jika dalam 15 menit tersebut terdapat keluhan, maka akan ditangani oleh tim medis yang bertugas di lokasi vaksinasi. Jika keluhan baru dirasakan ketika anak pulang, maka dapat melaporkan ke puskesmas atau dapat menghubungi kontak yang ada di kartu vaksin.</p>
+                            <p style="text-align: justify">Setelah melakukan vaksin, akan dilakukan observasi selama 15 menit. Jika dalam 15 menit tersebut terdapat keluhan, maka akan ditangani oleh tim medis yang bertugas di lokasi vaksinasi. Jika keluhan baru dirasakan ketika anak pulang, maka dapat melaporkan ke puskesmas atau dapat menghubungi kontak yang ada di kartu <span id="search">vaksin.</span></p>
                         </div>
                         {{-- <div class="button about_button">
                             <a href="#">read more</a>
