@@ -20,6 +20,7 @@ class CreatePendudukTable extends Migration
             $table->string('nama', 50);
             $table->string('tempat_lahir', 50);
             $table->string('tanggal_lahir', 50);
+            $table->enum('gender', ['L', 'P']);
             $table->enum('status', ['kepala keluarga', 'istri', 'anak']);
             $table->text('alamat');
             $table->timestamps();

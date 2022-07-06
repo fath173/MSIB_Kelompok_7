@@ -16,6 +16,7 @@ class Penduduk extends Model
         'nama',
         'tempat_lahir',
         'tanggal_lahir',
+        'gender',
         'status',
         'alamat',
     ];

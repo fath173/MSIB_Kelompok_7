@@ -37,7 +37,7 @@
                         </div>
                         <div class="col mb-0">
                             <label for="dobLarge" class="form-label">Tanggal Lahir</label>
-                            <input type="text" id="dobLarge" name="tanggal_lahir" class="form-control"
+                            <input type="date" id="dobLarge" name="tanggal_lahir" class="form-control"
                                 placeholder="Tulis Tanggal Lahir" />
                         </div>
                     </div>
