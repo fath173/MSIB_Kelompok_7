@@ -83,7 +83,7 @@ class MyProfileCtrl extends Controller
         $mhs = User::findOrFail($id);
         // dd($request);
         if ($request->foto) {
-            $nameImage = md5($request->foto . microtime() . '.' . $request->foto->extension());
+            $nameImage = date('YmdHis') . '.' . $request->foto->getClientOriginalExtension();
             $request->foto->move(public_path('files/foto-profile'), $nameImage);
             $mhs->update([
                 'name' => $request->name,

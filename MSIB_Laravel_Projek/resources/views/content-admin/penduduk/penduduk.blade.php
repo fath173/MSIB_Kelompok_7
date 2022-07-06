@@ -7,7 +7,7 @@
                 Data</button>
             @include('content-admin.penduduk.penduduk-tambah')
             <div class="table-responsive text-nowrap">
-                <table id="datatable1" class="table">
+                <table id="pendudukTbl" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -56,3 +56,31 @@
         </div>
     </div>
 @endsection
+@push('script-custom')
+    <script>
+        $(document).ready(function() {
+            $("#pendudukTbl").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                dom: 'Bfrtip',
+                buttons: [{
+                        extend: 'pdf',
+                        orientation: 'potrait',
+                        pageSize: 'Legal',
+                        title: 'Data Penduduk',
+                        download: 'open',
+                    },
+                    "excel", "print", "colvis"
+                ],
+                columnDefs: [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 7,
+                }]
+            })
+            // }).buttons().container().appendTo('#datatable1_wrapper .col-md-6:eq(0)');
+
+        });
+    </script>
+@endpush

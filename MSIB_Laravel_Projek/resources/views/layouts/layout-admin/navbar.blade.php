@@ -26,6 +26,7 @@
                      <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                          data-bs-toggle="dropdown">
                          <div class="avatar avatar-online">
+<<<<<<< Updated upstream
                              @if (Auth::user()->foto == '-')
                                  <img src="{{ asset('files/default-avatar.png') }}" alt
                                      class="w-px-40 h-auto rounded-circle" />
@@ -33,6 +34,10 @@
                                  <img src="{{ asset('files/foto-profile/' . Auth::user()->foto) }}" alt
                                      class="w-px-40 h-auto rounded-circle" />
                              @endif
+=======
+                             <img src="{{ asset('files/foto-profile/' . Auth::user()->foto) }}" alt
+                                 class="w-px-40 h-auto rounded-circle" />
+>>>>>>> Stashed changes
                          </div>
                      </a>
                      <ul class="dropdown-menu dropdown-menu-end">
@@ -41,6 +46,7 @@
                                  <div class="d-flex">
                                      <div class="flex-shrink-0 me-3">
                                          <div class="avatar avatar-online">
+<<<<<<< Updated upstream
                                              @if (Auth::user()->foto == '-')
                                                  <img src="{{ asset('files/default-avatar.png') }}" alt
                                                      class="w-px-40 h-auto rounded-circle" />
@@ -48,6 +54,10 @@
                                                  <img src="{{ asset('files/foto-profile/' . Auth::user()->foto) }}"
                                                      alt class="w-px-40 h-auto rounded-circle" />
                                              @endif
+=======
+                                             <img src="{{ asset('files/foto-profile/' . Auth::user()->foto) }}" alt
+                                                 class="w-px-40 h-auto rounded-circle" />
+>>>>>>> Stashed changes
                                          </div>
                                      </div>
                                      <div class="flex-grow-1">
