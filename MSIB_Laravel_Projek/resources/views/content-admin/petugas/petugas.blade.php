@@ -7,7 +7,7 @@
             Data</button>
         @include('content-admin.petugas.tambah')
         <div class="table-responsive text-nowrap">
-            <table id="datatable1" class="table">
+            <table id="datatable_petugas" class="table">
                 <thead>
                     <tr>
                         <th>No</th>

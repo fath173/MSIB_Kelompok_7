@@ -10,7 +10,7 @@
                 Data</button>
             @include('content-admin.vaksinasi.vaksinasi-tambah')
             <div class="table-responsive text-nowrap">
-                <table id="datatable1" class="table">
+                <table id="datatable_vaksinasi" class="table">
                     <thead>
                         <tr>
                             <th>No</th>

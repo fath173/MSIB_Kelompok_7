@@ -7,7 +7,7 @@
                 Data</button>
             @include('content-admin.penduduk.penduduk-tambah')
             <div class="table-responsive text-nowrap">
-                <table id="pendudukTbl" class="table">
+                <table id="datatable_penduduk" class="table">
                     <thead>
                         <tr>
                             <th>No</th>

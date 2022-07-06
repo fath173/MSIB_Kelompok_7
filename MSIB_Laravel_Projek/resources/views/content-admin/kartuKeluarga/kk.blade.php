@@ -4,7 +4,7 @@
         <h5 class="card-header">Data Kartu Keluarga</h5>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
-                <table id="datatable1" class="table">
+                <table id="datatable_kk" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
