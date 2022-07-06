@@ -21,43 +21,43 @@
                 <div class="card-body">
                     <div class="row align-items-center no-gutters">
                         <div class="col mr-2">
+                          <div class="text-uppercase font-weight-bold text-xs mb-1">
+                            <span>Jumlah petugas</span>
+                          </div>
+                          <div class=" font-weight-bold h5 mb-0" style="color: rgb(26, 19, 212)">
+                            <span>{{ $petugas }}</span>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow border-left-warning py-2">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
+                            <div class="text-uppercase font-weight-bold text-xs mb-1">
+                                <span>Jumlah Jenis vaksin</span>
+                            </div>
+                            <div class=" font-weight-bold h5 mb-0" style="color: rgb(26, 19, 212)">
+                                <span>{{ $jenisVaksin }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow border-left-warning py-2">
+                <div class="card-body">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col mr-2">
                             <div class="text-uppercase font-weight-bold text-xs mb-1">
                                 <span>Jumlah penduduk</span>
                             </div>
-                            <div class=" font-weight-bold h5 mb-0" style="color: rgb(26, 19, 212)">
-                                <span>1</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="card shadow border-left-warning py-2">
-                <div class="card-body">
-                    <div class="row align-items-center no-gutters">
-                        <div class="col mr-2">
-                            <div class="text-uppercase font-weight-bold text-xs mb-1">
-                                <span>Jumlah yang sudah vaksin</span>
-                            </div>
-                            <div class=" font-weight-bold h5 mb-0" style="color: rgb(26, 19, 212)">
-                                <span>1</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="card shadow border-left-warning py-2">
-                <div class="card-body">
-                    <div class="row align-items-center no-gutters">
-                        <div class="col mr-2">
-                            <div class="text-uppercase font-weight-bold text-xs mb-1">
-                                <span>Jumlah belum vaksin</span>
-                            </div>
                             <div class=" font-weight-bold h5 mb-0" style="color: red">
-                                <span>1</span>
+                                <span>{{ $penduduk }}</span>
                             </div>
                         </div>
                     </div>
@@ -70,10 +70,10 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col mr-2">
                             <div class="text-uppercase font-weight-bold text-xs mb-1">
-                                <span>Jumlah jenis vaksin</span>
+                                <span>Jumlah vaksinasi</span>
                             </div>
                             <div class="font-weight-bold h5 mb-0" style="color: rgb(26, 19, 212)">
-                                <span>3</span>
+                                <span>{{ $vaksinasi }}</span>
                             </div>
                         </div>
                     </div>

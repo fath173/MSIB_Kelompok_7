@@ -94,7 +94,7 @@
                 <div data-i18n="Basic">Vaksinasi</div>
             </a>
         </li>
-        <li class="menu-item" id="list">
+        <!-- <li class="menu-item" id="list">
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
@@ -102,7 +102,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
-        </li>
+        </li> -->
 
     </ul>
 </aside>

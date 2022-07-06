@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Penduduk;
+use App\Models\Jenis_Vaksin;
+use App\Models\User;
+use App\Models\Vaksinasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,10 +19,19 @@ class HomeCtrl extends Controller
      */
     public function index()
     {
-        $data = "INI HOME ADMIN";
+        // $data = "INI HOME ADMIN";
+
+        $jmlPenduduk = Penduduk::select('*')->count();
+        $jmlJenisVaksin = Jenis_Vaksin::select('*')->count();
+        $jmlPetugas = User::select('*')->count();
+        $jmlVaksinasi = Vaksinasi::select('*')->count();
 
         return view('content-admin.home.home', [
-            'data' => $data
+            // 'data' => $data
+            'penduduk' => $jmlPenduduk,
+            'jenisVaksin' => $jmlJenisVaksin,
+            'petugas' => $jmlPetugas,
+            'vaksinasi' => $jmlVaksinasi
         ]);
     }
 

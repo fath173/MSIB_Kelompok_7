@@ -52,13 +52,18 @@
                                 <div class="card-body">
                                     <div class="author">
                                         <a href="#">
+                                            @if (($data->foto) == '-')
+                                            <img class="avatar border-gray" src="{{ asset('files/default-avatar.png') }}"
+                                                alt="...">
+                                            @else
                                             <img class="avatar border-gray"
                                                 src="{{ asset('files/foto-profile/' . $data->foto) }}" alt="...">
-                                            <h5 class="title">John Doe</h5>
+                                            @endif
+                                            <h5 class="title">{{ $data->name }}</h5>
                                         </a>
-                                        <p class="description">
+                                        <!-- <p class="description">
                                             @Johndoe
-                                        </p>
+                                        </p> -->
                                     </div>
                                     <p class="description text-center">
                                         "I like the way you work it <br>
