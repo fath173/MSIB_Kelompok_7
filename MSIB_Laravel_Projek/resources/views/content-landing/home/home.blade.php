@@ -200,7 +200,6 @@
                 </div>
             </div>
             <div class="row departments_row row-md-eq-height">
-
                 <div class="boxes">
                     <div class="container">
                         <div class="row">
@@ -321,10 +320,7 @@
             <div class="row">
                 <div class="col">
                     <div class="cta_content text-center">
-                        <h2>Apakah anda membutuhkan bantuan?</h2>
-                        <p>Jika pertanyaan tidak tersedia di FAQ, silakan hubungi Helpdesk berikut :
-0895 3768 60088</p>
-                        <div class="button cta_button"><a href="#">Ajukan Permohonan</a></div>
+                        <h2>Ayo Vaksin Untuk Indonesia Yang Lebih Baik Lagi</h2>
                     </div>
                 </div>
             </div>
