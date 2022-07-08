@@ -4,7 +4,7 @@
         <h5 class="card-header">Data Kartu Keluarga</h5>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
-                <table id="datatable_kk" class="table">
+                <table id="kkTbl" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -49,3 +49,47 @@
         </div>
     </div>
 @endsection
+@push('script-custom')
+    <script>
+        $(document).ready(function() {
+            $("#kkTbl").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                dom: 'Bfrtip',
+                buttons: [{
+                            extend:'excel',
+                            filename: 'kartu_keluarga',
+                            title: 'data kartu keluarga',
+                            exportOptions: {
+                                columns: [0, 1, 2]
+                            },
+                          },
+                          {
+                            extend:'pdf',
+                            filename: 'kartu_keluarga',
+                            title: 'Data Kartu Keluarga',
+                            exportOptions: {
+                                columns: [0, 1, 2]
+                            },
+                            customize: function(doc) {
+                                doc.pageMargins = [25, 70, 25, 30];
+                                doc.content[1].table.widths = [
+                                    '5%',
+                                    '48%',
+                                    '47%'
+                                ];
+                                var rowCount = doc.content[1].table.body.length;
+                                for (i = 1; i < rowCount; i++) {
+                                    doc.content[1].table.body[i][0].alignment = 'center';
+                                    doc.content[1].table.body[i][1].alignment = 'center';
+                                    doc.content[1].table.body[i][2].alignment = 'center';
+                                };
+                            }
+                          },
+                          "colvis"
+                ],
+            })
+        });
+    </script>
+@endpush

@@ -10,7 +10,7 @@
                 Data</button>
             @include('content-admin.vaksinasi.vaksinasi-tambah')
             <div class="table-responsive text-nowrap">
-                <table id="datatable_vaksinasi" class="table">
+                <table id="vaksinasiTbl" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -95,6 +95,48 @@
                     }
                 });
             }
+
+            $("#vaksinasiTbl").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                dom: 'Bfrtip',
+                buttons: [{
+                            extend:'excel',
+                            filename: 'vaksinasi',
+                            title: 'Data Vaksinasi',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3, 4, 5]
+                            },
+                          },
+                          {
+                            extend:'pdf',
+                            filename: 'vaksinasi',
+                            title: 'Data Vaksinasi',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3, 4, 5]
+                            },
+                            customize: function(doc) {
+                                doc.pageMargins = [25, 70, 25, 30];
+                                doc.content[1].table.widths = [
+                                    '5%',
+                                    '20%',
+                                    '20%',
+                                    '10%',
+                                    '20%',
+                                    '25%'
+                                ];
+                                var rowCount = doc.content[1].table.body.length;
+                                for (i = 1; i < rowCount; i++) {
+                                    doc.content[1].table.body[i][0].alignment = 'center';
+                                    doc.content[1].table.body[i][3].alignment = 'center';
+                                    doc.content[1].table.body[i][4].alignment = 'center';
+                                };
+                            }
+                          },
+                          "colvis"
+                ],
+            })
         });
     </script>
 @endpush

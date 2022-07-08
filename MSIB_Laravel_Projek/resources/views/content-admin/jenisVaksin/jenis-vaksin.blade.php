@@ -7,7 +7,7 @@
                 Data</button>
             @include('content-admin.jenisVaksin.tambah')
             <div class="table-responsive text-nowrap">
-                <table id="datatable_jenisVaksin" class="table">
+                <table id="jenisVaksinTbl" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -46,3 +46,44 @@
         </div>
     </div>
 @endsection
+@push('script-custom')
+    <script>
+        $(document).ready(function() {
+            $("#jenisVaksinTbl").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                dom: 'Bfrtip',
+                buttons: [{
+                            extend:'excel',
+                            filename: 'jenis_vaksin',
+                            title: 'data jenis vaksin',
+                            exportOptions: {
+                                columns: [0, 1]
+                            },
+                          },
+                          {
+                            extend:'pdf',
+                            filename: 'jenis_vaksin',
+                            title: 'Data Jenis Vaksin',
+                            exportOptions: {
+                                columns: [0, 1]
+                            },
+                            customize: function(doc) {
+                                doc.pageMargins = [25, 70, 25, 30];
+                                doc.content[1].table.widths = [
+                                    '10%',
+                                    '90%'
+                                ];
+                                var rowCount = doc.content[1].table.body.length;
+                                for (i = 1; i < rowCount; i++) {
+                                    doc.content[1].table.body[i][0].alignment = 'center';
+                                };
+                            }
+                          },
+                          "colvis"
+                ],
+            })
+        });
+    </script>
+@endpush

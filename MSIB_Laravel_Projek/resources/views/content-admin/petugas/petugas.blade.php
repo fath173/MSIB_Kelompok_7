@@ -7,7 +7,7 @@
             Data</button>
         @include('content-admin.petugas.tambah')
         <div class="table-responsive text-nowrap">
-            <table id="datatable_petugas" class="table">
+            <table id="petugasTbl" class="table">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -54,3 +54,47 @@
     </div>
 </div>
 @endsection
+@push('script-custom')
+    <script>
+        $(document).ready(function() {
+            $("#petugasTbl").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                dom: 'Bfrtip',
+                buttons: [{
+                            extend:'excel',
+                            filename: 'Petugas',
+                            title: 'data petugas',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3, 4]
+                            },
+                          },
+                          {
+                            extend:'pdf',
+                            filename: 'petugas',
+                            title: 'Data Petugas',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3, 4]
+                            },
+                            customize: function(doc) {
+                                doc.pageMargins = [25, 70, 25, 30];
+                                doc.content[1].table.widths = [
+                                    '5%',
+                                    '30%',
+                                    '20%',
+                                    '15%',
+                                    '30%'
+                                ];
+                                var rowCount = doc.content[1].table.body.length;
+                                for (i = 1; i < rowCount; i++) {
+                                    doc.content[1].table.body[i][0].alignment = 'center';
+                                };
+                            }
+                          },
+                          "colvis"
+                ],
+            })
+        });
+    </script>
+@endpush

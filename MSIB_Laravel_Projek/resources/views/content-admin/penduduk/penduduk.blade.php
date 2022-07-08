@@ -7,7 +7,7 @@
                 Data</button>
             @include('content-admin.penduduk.penduduk-tambah')
             <div class="table-responsive text-nowrap">
-                <table id="datatable_penduduk" class="table">
+                <table id="pendudukTbl" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -65,22 +65,44 @@
                 "autoWidth": false,
                 dom: 'Bfrtip',
                 buttons: [{
-                        extend: 'pdf',
-                        orientation: 'potrait',
-                        pageSize: 'Legal',
-                        title: 'Data Penduduk',
-                        download: 'open',
-                    },
-                    "excel", "print", "colvis"
+                            extend:'excel',
+                            filename: 'penduduk',
+                            title: 'data penduduk',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3, 4, 5, 6]
+                            },
+                          },
+                          {
+                            extend:'pdf',
+                            filename: 'penduduk',
+                            title: 'Data Penduduk',
+                            // download: 'open',
+                            exportOptions: {
+                                columns: [0, 1, 2, 3, 4, 5, 6]
+                            },
+                            customize: function(doc) {
+                                doc.pageMargins = [25, 70, 25, 30];
+                                doc.content[1].table.widths = [
+                                    '4%',
+                                    '18%',
+                                    '18%',
+                                    '19%',
+                                    '11%',
+                                    '15%',
+                                    '15%'
+                                ];
+                                var rowCount = doc.content[1].table.body.length;
+                                for (i = 1; i < rowCount; i++) {
+                                    doc.content[1].table.body[i][0].alignment = 'center';
+                                    doc.content[1].table.body[i][1].alignment = 'center';
+                                    doc.content[1].table.body[i][2].alignment = 'center';
+                                    doc.content[1].table.body[i][5].alignment = 'center';
+                                };
+                            }
+                          },
+                          "colvis"
                 ],
-                columnDefs: [{
-                    "searchable": false,
-                    "orderable": false,
-                    "targets": 7,
-                }]
             })
-            // }).buttons().container().appendTo('#datatable1_wrapper .col-md-6:eq(0)');
-
         });
     </script>
 @endpush
