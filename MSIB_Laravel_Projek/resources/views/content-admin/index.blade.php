@@ -48,7 +48,7 @@
                             <script>
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Yeeaay',
+                                    title: 'Success',
                                     html: '{{ $message }}',
                                 })
                             </script>
@@ -86,7 +86,7 @@
 
     @include('layouts.layout-admin.js')
     @stack('script-custom')
-    
+
 
 </body>
 

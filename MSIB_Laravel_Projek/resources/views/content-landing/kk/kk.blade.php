@@ -68,3 +68,72 @@
     </div>
 @endsection
 
+@push('script-custom')
+    <script>
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            // On Enter
+            $("input[name~='kk']").on('keypress', function(e) {
+                var kk = $(this).val();
+                if (e.which == 13) {
+                    loadData(kk)
+                }
+            });
+
+            // On button check click
+            $("#btn-check").on('click', function() {
+                var kk = $("input[name~='kk']").val()
+                // alert('berhasil:' + dat);
+                loadData(kk)
+            });
+
+            function loadData(no_kk) {
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('landing-getByKK') }}",
+                    data: {
+                        kk: no_kk
+                    },
+                    success: function(data) {
+                        if (data == 0) {
+                            document.getElementById('tabelJudul').innerHTML = 'Tidak Ada Data!'
+                            document.getElementById("tabelData").innerHTML = ''
+                            console.log(data);
+                        } else {
+                            let judul = ['No', 'Nama', 'Status', 'Jenis Vaksin', 'Dosis',
+                                'Tanggal Vaksin', 'Keterangan'
+                            ];
+                            let dataJudul = ''
+                            for (const j of judul) {
+                                dataJudul = dataJudul + `<th scope="col">${j}</th>`
+                            }
+                            document.getElementById('tabelJudul').innerHTML = dataJudul
+
+                            var dataVaksin = ''
+                            var no = 1;
+                            for (const d in data) {
+                                dataVaksin += `<tr>
+                                                    <th scope="row">${no++}</th>
+                                                    <td>${data[d].nama}</td>
+                                                    <td>${data[d].status}</td>
+                                                    <td>${data[d].jenis_vaksin}</td>
+                                                    <td>${data[d].dosis}</td>
+                                                    <td>${data[d].tanggal}</td>
+                                                    <td>${data[d].keterangan}</td>
+                                               </tr>`
+                            }
+                            document.getElementById("tabelData").innerHTML = dataVaksin
+                            // console.log(dataVaksin);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+@endpush

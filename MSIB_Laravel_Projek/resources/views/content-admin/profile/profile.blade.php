@@ -36,8 +36,8 @@
                     <a href="https://www.creative-tim.com" class="simple-text logo-normal">
                         Creative Tim
                         <!-- <div class="logo-image-big">
-                                                                        <img src="../assets/img/logo-big.png">
-                                                                      </div> -->
+                                                                                                                    <img src="../assets/img/logo-big.png">
+                                                                                                                  </div> -->
                     </a>
                 </div>
             </div>
@@ -52,18 +52,16 @@
                                 <div class="card-body">
                                     <div class="author">
                                         <a href="#">
-                                            @if (($data->foto) == '-')
-                                            <img class="avatar border-gray" src="{{ asset('files/default-avatar.png') }}"
-                                                alt="...">
+                                            @if ($data->foto == '-')
+                                                <img class="avatar border-gray"
+                                                    src="{{ asset('files/default-avatar.png') }}" alt="...">
                                             @else
-                                            <img class="avatar border-gray"
-                                                src="{{ asset('files/foto-profile/' . $data->foto) }}" alt="...">
+                                                <img class="avatar border-gray"
+                                                    src="{{ asset('files/foto-profile/' . $data->foto) }}" alt="...">
                                             @endif
                                             <h5 class="title">{{ $data->name }}</h5>
                                         </a>
-                                        <!-- <p class="description">
-                                            @Johndoe
-                                        </p> -->
+
                                     </div>
                                     <p class="description text-center">
                                         "I like the way you work it <br>
@@ -71,8 +69,10 @@
                                         I wanna bag it up"
                                     </p>
                                 </div>
-                                <div class="card-footer">
-                                    <hr>
+                                <div class="card-footer d-flex justify-content-center">
+                                    <button type="button" class="btn btn-primary btn-round mb-3" data-bs-toggle="modal"
+                                        data-bs-target="#tambah">Ubah Password</button>
+                                    @include('content-admin.profile.ubah-password')
                                 </div>
                             </div>
                         </div>
@@ -89,8 +89,8 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Nama</label>
-                                                    <input type="text" name="name" class="form-control" placeholder="Nama"
-                                                        value="{{ $data->name }}">
+                                                    <input type="text" name="name" class="form-control"
+                                                        placeholder="Nama" value="{{ $data->name }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,16 +128,6 @@
                                             <div class="col-md-12">
                                                 <div class="">
                                                     <p style="color: rgb(144, 144, 144);">Edit foto profile</p>
-                                                    <input type="file" class="form-control border-0" name="foto"
-                                                        placeholder="Upload gambar" style="height: 55px; color: black"
-                                                        accept=".png, .jpg, .jpeg">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="">
-                                                    <p style="color: rgb(144, 144, 144);">Edit Background profile</p>
                                                     <input type="file" class="form-control border-0" name="foto"
                                                         placeholder="Upload gambar" style="height: 55px; color: black"
                                                         accept=".png, .jpg, .jpeg">

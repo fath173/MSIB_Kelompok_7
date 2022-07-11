@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MyProfileCtrl extends Controller
 {
@@ -98,6 +99,25 @@ class MyProfileCtrl extends Controller
         }
 
         return redirect()->route('admin-profile');
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'password_old' => 'required|min:8',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required_with:password|same:password|min:8',
+        ]);
+
+        $mhs = User::findOrFail($id);
+        if (Hash::check($request->password_old, $mhs->password)) {
+            $mhs->update([
+                'password' => Hash::make($request['password']),
+            ]);
+            return redirect()->route('admin-profile')->with('success', 'Password Baru Berhasil Tersimpan.');
+        } else {
+            return redirect()->route('admin-profile')->with('error', 'Password Lama Salah!');
+        }
     }
 
     /**

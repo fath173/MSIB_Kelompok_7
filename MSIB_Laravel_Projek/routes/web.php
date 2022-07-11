@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // CRUD My Profile
     Route::get('/profile', [MyProfileCtrl::class, 'index'])->name('admin-profile');
+    Route::post('/profile-password/{id}', [MyProfileCtrl::class, 'updatePassword'])->name('admin-updatePassword');
     Route::post('/profile-update/{id}', [MyProfileCtrl::class, 'update'])->name('admin-profileUpdate');
 
     // CRUD Jenis Vaksin
