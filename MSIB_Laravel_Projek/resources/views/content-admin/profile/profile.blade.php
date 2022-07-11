@@ -135,16 +135,6 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="">
-                                                    <p style="color: rgb(144, 144, 144);">Edit Background profile</p>
-                                                    <input type="file" class="form-control border-0" name="foto"
-                                                        placeholder="Upload gambar" style="height: 55px; color: black"
-                                                        accept=".png, .jpg, .jpeg">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="update ml-auto mr-auto">
                                                 <button type="submit" class="btn btn-primary btn-round">Update
                                                     Profile</button>
