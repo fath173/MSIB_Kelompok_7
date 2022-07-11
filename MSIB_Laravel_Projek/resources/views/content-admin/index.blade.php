@@ -44,6 +44,14 @@
                                     html: '@foreach ($errors->all() as $error) <li>{{ $error }}</li> @endforeach',
                                 })
                             </script>
+                            @elseif ($message = Session::get('error'))
+                            <script>
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    html: '{{ $message }}',
+                                })
+                            </script>
                             @elseif ($message = Session::get('success'))
                             <script>
                                 Swal.fire({
