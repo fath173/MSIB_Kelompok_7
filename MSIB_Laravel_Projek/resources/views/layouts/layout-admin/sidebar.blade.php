@@ -64,18 +64,24 @@
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Fitur</span></li>
         @if (Auth::user()->role == 'admin')
-        <li class="menu-item" id="list">
-            <a href="{{ route('admin-petugas') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Petugas</div>
-            </a>
-        </li>
+            <li class="menu-item" id="list">
+                <a href="{{ route('admin-petugas') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-collection"></i>
+                    <div data-i18n="Basic">Petugas</div>
+                </a>
+            </li>
         @endif
         <!-- Cards -->
         <li class="menu-item" id="list2">
             <a href="{{ route('admin-jenis-vaksin') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Jenis Vaksin</div>
+            </a>
+        </li>
+        <li class="menu-item" id="list2">
+            <a href="{{ route('admin-dosis') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Dosis</div>
             </a>
         </li>
         <li class="menu-item" id="list3">

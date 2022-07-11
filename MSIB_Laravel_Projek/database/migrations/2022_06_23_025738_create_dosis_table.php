@@ -15,7 +15,7 @@ class CreateDosisTable extends Migration
     {
         Schema::create('dosis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_dosis', 10);
+            $table->string('nama_dosis', 20);
             $table->timestamps();
         });
     }

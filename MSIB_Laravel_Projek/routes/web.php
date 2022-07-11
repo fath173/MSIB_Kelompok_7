@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DosisCtrl;
 use App\Http\Controllers\Admin\HomeCtrl as homeAdmin;
 use App\Http\Controllers\Admin\Jenis_VaksinCtrl;
 use App\Http\Controllers\Admin\KartuKeluargaCtrl;
@@ -62,6 +63,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/jenis-vaksin-tambah', [Jenis_VaksinCtrl::class, 'store'])->name('admin-jenis-vaksin-tambah');
     Route::post('/jenis-vaksin-update/{id}', [Jenis_VaksinCtrl::class, 'update'])->name('admin-jenis-vaksin-update');
     Route::post('/jenis-vaksin-hapus/{id}', [Jenis_VaksinCtrl::class, 'destroy'])->name('admin-jenis-vaksin-hapus');
+
+    // CRUD Jenis Vaksin
+    Route::get('/dosis', [DosisCtrl::class, 'index'])->name('admin-dosis');
+    Route::post('/dosis-tambah', [DosisCtrl::class, 'store'])->name('admin-dosis-tambah');
+    Route::post('/dosis-update/{id}', [DosisCtrl::class, 'update'])->name('admin-dosis-update');
+    Route::post('/dosis-hapus/{id}', [DosisCtrl::class, 'destroy'])->name('admin-dosis-hapus');
 
     // CRUD Petugas
     Route::get('/petugas', [PetugasCtrl::class, 'index'])->name('admin-petugas');
