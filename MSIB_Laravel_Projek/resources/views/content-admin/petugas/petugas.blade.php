@@ -66,6 +66,7 @@
                             extend:'excel',
                             filename: 'Petugas',
                             title: 'data petugas',
+                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1, 2, 3, 4]
                             },
