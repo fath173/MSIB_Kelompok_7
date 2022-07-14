@@ -52,7 +52,7 @@
                                 <div class="card-body">
                                     <div class="author">
                                         <a href="#">
-                                            @if ($data->foto == '-')
+                                            @if ($data->foto == '-' || empty($data->foto))
                                                 <img class="avatar border-gray"
                                                     src="{{ asset('files/default-avatar.png') }}" alt="...">
                                             @else

@@ -26,8 +26,13 @@
                      <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                          data-bs-toggle="dropdown">
                          <div class="avatar avatar-online">
+                             @if ((Auth::user()->foto) == '-' || empty(Auth::user()->foto))
+                             <img src="{{ asset('files/default-avatar.png') }}" alt
+                                 class="w-px-40 h-auto rounded-circle" />
+                             @else
                              <img src="{{ asset('files/foto-profile/' . Auth::user()->foto) }}" alt
                                  class="w-px-40 h-auto rounded-circle" />
+                             @endif
                          </div>
                      </a>
                      <ul class="dropdown-menu dropdown-menu-end">
