@@ -58,7 +58,6 @@
                             extend:'excel',
                             filename: 'jenis_vaksin',
                             title: 'data jenis vaksin',
-                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1]
                             },
@@ -67,6 +66,7 @@
                             extend:'pdf',
                             filename: 'jenis_vaksin',
                             title: 'Data Jenis Vaksin',
+                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1]
                             },

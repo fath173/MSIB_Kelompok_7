@@ -68,7 +68,6 @@
                             extend:'excel',
                             filename: 'penduduk',
                             title: 'data penduduk',
-                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1, 2, 3, 4, 5, 6]
                             },
@@ -77,7 +76,7 @@
                             extend:'pdf',
                             filename: 'penduduk',
                             title: 'Data Penduduk',
-                            // download: 'open',
+                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1, 2, 3, 4, 5, 6]
                             },

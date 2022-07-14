@@ -55,16 +55,17 @@
                 dom: 'Bfrtip',
                 buttons: [{
                         extend: 'excel',
-                        filename: 'jenis_vaksin',
-                        title: 'data jenis vaksin',
+                        filename: 'dosis',
+                        title: 'data Dosis',
                         exportOptions: {
                             columns: [0, 1]
                         },
                     },
                     {
                         extend: 'pdf',
-                        filename: 'jenis_vaksin',
-                        title: 'Data Jenis Vaksin',
+                        filename: 'dosis',
+                        title: 'Data Dosis',
+                        download: 'open',
                         exportOptions: {
                             columns: [0, 1]
                         },

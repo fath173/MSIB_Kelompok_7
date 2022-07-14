@@ -61,7 +61,6 @@
                             extend:'excel',
                             filename: 'kartu_keluarga',
                             title: 'data kartu keluarga',
-                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1, 2]
                             },
@@ -70,6 +69,7 @@
                             extend:'pdf',
                             filename: 'kartu_keluarga',
                             title: 'Data Kartu Keluarga',
+                            download: 'open',
                             exportOptions: {
                                 columns: [0, 1, 2]
                             },
