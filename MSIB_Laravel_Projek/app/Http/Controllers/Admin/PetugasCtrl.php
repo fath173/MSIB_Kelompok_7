@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PetugasCtrl extends Controller
 {
@@ -17,9 +18,12 @@ class PetugasCtrl extends Controller
     public function index()
     {
         $data = User::orderBy('id', 'desc')->get();
-        // dd($data);
 
-        return view('content-admin.petugas.petugas', ['petugas' => $data]);
+        if (Auth::user()->role == 'admin') {
+            return view('content-admin.petugas.petugas', ['petugas' => $data]);
+        } else {
+            return view('content-admin.aksesFailed');
+        }
     }
 
     /**
