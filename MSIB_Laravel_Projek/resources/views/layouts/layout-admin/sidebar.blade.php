@@ -57,7 +57,7 @@
         <!-- Dashboard -->
         <li class="menu-item" id="list1">
             <a href="." class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Basic">Dashboard</div>
             </a>
         </li>
@@ -66,7 +66,7 @@
         @if (Auth::user()->role == 'admin')
             <li class="menu-item" id="list">
                 <a href="{{ route('admin-petugas') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-collection"></i>
+                    <i class="menu-icon tf-icons bx bx-user"></i>
                     <div data-i18n="Basic">Petugas</div>
                 </a>
             </li>
@@ -74,19 +74,19 @@
         <!-- Cards -->
         <li class="menu-item" id="list2">
             <a href="{{ route('admin-jenis-vaksin') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-plus-medical"></i>
                 <div data-i18n="Basic">Jenis Vaksin</div>
             </a>
         </li>
         <li class="menu-item" id="list2">
             <a href="{{ route('admin-dosis') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-list-plus"></i>
                 <div data-i18n="Basic">Dosis</div>
             </a>
         </li>
         <li class="menu-item" id="list3">
             <a href="{{ route('admin-penduduk') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
                 <div data-i18n="Basic">Penduduk</div>
             </a>
         </li>
@@ -98,7 +98,7 @@
         </li>
         <li class="menu-item" id="list">
             <a href="{{ route('admin-vaksinasi') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-layer-plus"></i>
                 <div data-i18n="Basic">Vaksinasi</div>
             </a>
         </li>

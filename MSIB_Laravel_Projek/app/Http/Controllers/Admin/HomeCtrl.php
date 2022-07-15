@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dosis;
 use App\Models\Penduduk;
 use App\Models\Jenis_Vaksin;
 use App\Models\User;
@@ -26,12 +27,22 @@ class HomeCtrl extends Controller
         $jmlPetugas = User::select('*')->count();
         $jmlVaksinasi = Vaksinasi::select('*')->count();
 
+        $dosis = Dosis::all();
+        $v = [];
+        foreach ($dosis as $d) {
+            $v[] = [
+                'id' => $d->id,
+                'dosis' => $d->nama_dosis,
+                'jumlah' => Vaksinasi::where('id_dosis', $d->id)->count(),
+            ];
+        }
+
         return view('content-admin.home.home', [
-            // 'data' => $data
             'penduduk' => $jmlPenduduk,
             'jenisVaksin' => $jmlJenisVaksin,
             'petugas' => $jmlPetugas,
-            'vaksinasi' => $jmlVaksinasi
+            'vaksinasi' => $jmlVaksinasi,
+            'chartvaksin' => $v
         ]);
     }
 

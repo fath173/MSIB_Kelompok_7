@@ -36,8 +36,8 @@
                     <a href="https://www.creative-tim.com" class="simple-text logo-normal">
                         Creative Tim
                         <!-- <div class="logo-image-big">
-                                                                                                                    <img src="../assets/img/logo-big.png">
-                                                                                                                  </div> -->
+                                                                                                                                <img src="../assets/img/logo-big.png">
+                                                                                                                              </div> -->
                     </a>
                 </div>
             </div>
@@ -107,20 +107,16 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Gender</label>
-                                                    <select class="form-select" name="gender"
+                                                    <select class="form-select" name="gender" id="select1"
                                                         aria-label="Default select example">
-                                                        <option selected>Gender</option>
-                                                        <option value="L">Laki-laki</option>
-                                                        <option value="P">Perempuan</option>
+                                                        @if ($data->gender == 'L')
+                                                            <option value="L" selected>Laki-laki</option>
+                                                            <option value="P">Perempuan</option>
+                                                        @else
+                                                            <option value="L">Laki-laki</option>
+                                                            <option value="P" selected>Perempuan</option>
+                                                        @endif
                                                     </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input type="password" class="form-control" placeholder="Password">
                                                 </div>
                                             </div>
                                         </div>

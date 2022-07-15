@@ -88,12 +88,14 @@ class MyProfileCtrl extends Controller
             $request->foto->move(public_path('files/foto-profile'), $nameImage);
             $mhs->update([
                 'name' => $request->name,
+                'gender' => $request->gender,
                 'email' => $request->email,
                 'foto' => $nameImage,
             ]);
         } else {
             $mhs->update([
                 'name' => $request->name,
+                'gender' => $request->gender,
                 'email' => $request->email,
             ]);
         }

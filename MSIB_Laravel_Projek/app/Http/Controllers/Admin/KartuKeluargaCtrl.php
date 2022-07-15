@@ -81,8 +81,8 @@ class KartuKeluargaCtrl extends Controller
         $kk = KartuKeluarga::findOrFail($id);
         // dd($request);
         if ($request->foto) {
-            $nameImage = microtime() . '.' . $request->foto->extension();
-            $request->foto->move(public_path('files/foto-kk'), str_replace(' ', '', $nameImage));
+            $nameImage = date('YmdHis') . '.' . $request->foto->getClientOriginalExtension();
+            $request->foto->move(public_path('files/foto-kk'),  $nameImage);
             $kk->update([
                 'no_kk' => $request->no_kk,
                 'foto_kk' => str_replace(' ', '', $nameImage),

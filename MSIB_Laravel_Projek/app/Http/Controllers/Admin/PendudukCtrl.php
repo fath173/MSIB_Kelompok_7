@@ -44,7 +44,7 @@ class PendudukCtrl extends Controller
     {
         $request->validate([
             'no_kk' => 'required',
-            'nik' => 'required',
+            'nik' => 'required|digits_between:16,16|unique:penduduk,nik',
             'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -52,7 +52,6 @@ class PendudukCtrl extends Controller
             'status' => 'required',
             'alamat' => 'required',
         ]);
-
         $kk = KartuKeluarga::where('no_kk', $request->no_kk)->get();
 
         if ($request->status == 'kepala keluarga') {

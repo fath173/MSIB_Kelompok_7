@@ -15,7 +15,7 @@ class CreateKartuKeluargaTable extends Migration
     {
         Schema::create('kartu_keluarga', function (Blueprint $table) {
             $table->id();
-            $table->string('no_kk', 50);
+            $table->string('no_kk', 16)->unique();
             $table->string('foto_kk', 100)->nullable();
             $table->timestamps();
         });

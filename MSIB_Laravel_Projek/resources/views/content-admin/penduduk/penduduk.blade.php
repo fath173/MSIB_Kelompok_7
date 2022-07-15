@@ -15,7 +15,6 @@
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>gender</th>
-                            <th>TTL</th>
                             <th>Status</th>
                             <th>Opsi</th>
                         </tr>
@@ -28,7 +27,6 @@
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->nama }}</td>
                                 <td>{{ $p->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
-                                <td>{{ $p->tempat_lahir . ', ' . $p->tanggal_lahir }}</td>
                                 <td>{{ $p->status }}
                                 </td>
                                 <td>
@@ -65,42 +63,42 @@
                 "autoWidth": false,
                 dom: 'Bfrtip',
                 buttons: [{
-                            extend:'excel',
-                            filename: 'penduduk',
-                            title: 'data penduduk',
-                            exportOptions: {
-                                columns: [0, 1, 2, 3, 4, 5, 6]
-                            },
-                          },
-                          {
-                            extend:'pdf',
-                            filename: 'penduduk',
-                            title: 'Data Penduduk',
-                            download: 'open',
-                            exportOptions: {
-                                columns: [0, 1, 2, 3, 4, 5, 6]
-                            },
-                            customize: function(doc) {
-                                doc.pageMargins = [25, 70, 25, 30];
-                                doc.content[1].table.widths = [
-                                    '4%',
-                                    '18%',
-                                    '18%',
-                                    '19%',
-                                    '11%',
-                                    '15%',
-                                    '15%'
-                                ];
-                                var rowCount = doc.content[1].table.body.length;
-                                for (i = 1; i < rowCount; i++) {
-                                    doc.content[1].table.body[i][0].alignment = 'center';
-                                    doc.content[1].table.body[i][1].alignment = 'center';
-                                    doc.content[1].table.body[i][2].alignment = 'center';
-                                    doc.content[1].table.body[i][5].alignment = 'center';
-                                };
-                            }
-                          },
-                          "colvis"
+                        extend: 'excel',
+                        filename: 'penduduk',
+                        title: 'data penduduk',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        },
+                    },
+                    {
+                        extend: 'pdf',
+                        filename: 'penduduk',
+                        title: 'Data Penduduk',
+                        download: 'open',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        },
+                        customize: function(doc) {
+                            doc.pageMargins = [25, 70, 25, 30];
+                            doc.content[1].table.widths = [
+                                '4%',
+                                '18%',
+                                '18%',
+                                '19%',
+                                '11%',
+                                '15%',
+                                '15%'
+                            ];
+                            var rowCount = doc.content[1].table.body.length;
+                            for (i = 1; i < rowCount; i++) {
+                                doc.content[1].table.body[i][0].alignment = 'center';
+                                doc.content[1].table.body[i][1].alignment = 'center';
+                                doc.content[1].table.body[i][2].alignment = 'center';
+                                doc.content[1].table.body[i][5].alignment = 'center';
+                            };
+                        }
+                    },
+                    "colvis"
                 ],
             })
         });
