@@ -55,7 +55,7 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item" id="list1">
+        <li class="menu-item  {{ Nav::isRoute('admin-home') }}" id="list1">
             <a href="." class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Basic">Dashboard</div>
@@ -64,7 +64,7 @@
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Fitur</span></li>
         @if (Auth::user()->role == 'admin')
-            <li class="menu-item" id="list">
+            <li class="menu-item {{ Nav::isRoute('admin-petugas') }}" id="list">
                 <a href="{{ route('admin-petugas') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-user"></i>
                     <div data-i18n="Basic">Petugas</div>
@@ -72,45 +72,36 @@
             </li>
         @endif
         <!-- Cards -->
-        <li class="menu-item" id="list2">
+        <li class="menu-item  {{ Nav::isRoute('admin-jenis-vaksin') }}" id="list2">
             <a href="{{ route('admin-jenis-vaksin') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-plus-medical"></i>
                 <div data-i18n="Basic">Jenis Vaksin</div>
             </a>
         </li>
-        <li class="menu-item" id="list2">
+        <li class="menu-item  {{ Nav::isRoute('admin-dosis') }}" id="list2">
             <a href="{{ route('admin-dosis') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-plus"></i>
                 <div data-i18n="Basic">Dosis</div>
             </a>
         </li>
-        <li class="menu-item" id="list3">
+        <li class="menu-item  {{ Nav::isRoute('admin-penduduk') }}" id="list3">
             <a href="{{ route('admin-penduduk') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-circle"></i>
                 <div data-i18n="Basic">Penduduk</div>
             </a>
         </li>
-        <li class="menu-item" id="list">
+        <li class="menu-item  {{ Nav::isRoute('admin-kk') }}" id="list">
             <a href="{{ route('admin-kk') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Kartu Keluarga</div>
             </a>
         </li>
-        <li class="menu-item" id="list">
+        <li class="menu-item  {{ Nav::isRoute('admin-vaksinasi') }}" id="list">
             <a href="{{ route('admin-vaksinasi') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layer-plus"></i>
                 <div data-i18n="Basic">Vaksinasi</div>
             </a>
         </li>
-        <!-- <li class="menu-item" id="list">
-            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-        </li> -->
 
     </ul>
 </aside>
