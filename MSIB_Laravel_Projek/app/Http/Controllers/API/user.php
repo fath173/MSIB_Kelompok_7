@@ -15,11 +15,11 @@ class user extends Controller
      */
     public function index()
     {
-        $user = us::get();
+        $user = us::all();
         return response()->json([
             'message' => 'Success',
             'data' => $user,
-        ]);
+        ], 201);
     }
 
     /**

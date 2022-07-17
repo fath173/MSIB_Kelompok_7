@@ -18,31 +18,18 @@
                         <h2>Apa itu VaksinMed??</h2>
                     </div>
                     <div class="about_text">
-                        <p style="text-align: justify">VaksinMed merupakan suatu website untuk membantu pendataan vaksin pada masyarakat desa.
-                        Pada tahap awal, vaksinasi Covid-19 sudah berhasil diberikan kepada seluruh tenaga kesahatan, asisten tenaga kesehatan,
-                        dan mahasiswa yang menjalankan pendidikan profesi kedokteran yang bekerja pada fasilitas pelayanan kesehatan.
-                        Vaksin tahap kedua juga sudah diberikan kepada lansia, pekerja sektor esensial, dan guru.
-                        Pemerataan vaksinasi hingga saat ini dilanjutkan untuk masyarakat umum dan terus berjalan hingga berhasil menjangkau
-                        seluruh warga negara Indonesia dan warga negara asing yang bertempat tinggal di Indonesia.
-                        Harapannya dengan upaya pemerataan vaksinasi ini, Indonesia dapat segera bangkit dan terbebas dari penyebaran virus Covid-19.</p>
-                    </div>
-                    <div class="row loaders_container">
-                        <div class="col-md-3 loader_col">
-                            <!-- Loader -->
-                            <div class="loader" data-perc="0.75"><span>Hard Work</span></div>
-                        </div>
-                        <div class="col-md-3 loader_col">
-                            <!-- Loader -->
-                            <div class="loader" data-perc="0.95"><span>Passion</span></div>
-                        </div>
-                        <div class="col-md-3 loader_col">
-                            <!-- Loader -->
-                            <div class="loader" data-perc="0.75"><span>Hard Work</span></div>
-                        </div>
-                        <div class="col-md-3 loader_col">
-                            <!-- Loader -->
-                            <div class="loader" data-perc="0.95"><span>Passion</span></div>
-                        </div>
+                        <p style="text-align: justify">VaksinMed merupakan suatu website untuk membantu pendataan vaksin
+                            pada masyarakat desa.
+                            Pada tahap awal, vaksinasi Covid-19 sudah berhasil diberikan kepada seluruh tenaga kesahatan,
+                            asisten tenaga kesehatan,
+                            dan mahasiswa yang menjalankan pendidikan profesi kedokteran yang bekerja pada fasilitas
+                            pelayanan kesehatan.
+                            Vaksin tahap kedua juga sudah diberikan kepada lansia, pekerja sektor esensial, dan guru.
+                            Pemerataan vaksinasi hingga saat ini dilanjutkan untuk masyarakat umum dan terus berjalan hingga
+                            berhasil menjangkau
+                            seluruh warga negara Indonesia dan warga negara asing yang bertempat tinggal di Indonesia.
+                            Harapannya dengan upaya pemerataan vaksinasi ini, Indonesia dapat segera bangkit dan terbebas
+                            dari penyebaran virus Covid-19.</p>
                     </div>
 
                 </div>
@@ -82,7 +69,8 @@
                                     src="{{ asset('assets/landing/images/phone-call.svg') }}" alt=""></div>
                         </div>
                         <div class="box_title">Hotline Covid-19</div>
-                        <div class="box_text">Informasi panggilan darurat untuk penannganan Covid-19. Informasi lebih lanjut silahkan hubungi : 119</div>
+                        <div class="box_text">Informasi panggilan darurat untuk penannganan Covid-19. Informasi lebih lanjut
+                            silahkan hubungi : 119</div>
                     </div>
 
                     <!-- Box -->
@@ -93,7 +81,8 @@
                             </div>
                         </div>
                         <div class="box_title">Narahubung</div>
-                        <div class="box_emergency_text">Jika ada ingin mengetahui informasi secara lengkap, dapat langsung hubungi : 08214121231</div>
+                        <div class="box_emergency_text">Jika ada ingin mengetahui informasi secara lengkap, dapat langsung
+                            hubungi : 08214121231</div>
                     </div>
                 </div>
             </div>
